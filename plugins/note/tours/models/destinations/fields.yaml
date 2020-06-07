@@ -1,0 +1,76 @@
+fields:
+    title:
+        label: Title
+        size: ''
+        span: auto
+        type: richeditor
+    subtitle:
+        label: Subtitle
+        size: ''
+        span: auto
+        type: richeditor
+    featured_image:
+        label: 'Featured Media'
+        mode: file
+        span: left
+        type: mediafinder
+    country:
+        label: Country
+        options:
+            Serbia: Serbia
+            Hungary: Hungary
+            Austria: Austria
+        span: auto
+        type: dropdown
+    cover_media:
+        label: Images
+        prompt: 'Add new item'
+        span: full
+        type: repeater
+        form:
+            fields:
+                image:
+                    label: 'Media finder'
+                    mode: file
+                    span: auto
+                    type: mediafinder
+    content:
+        label: Sections
+        prompt: 'Add new item'
+        span: full
+        type: repeater
+        form:
+            fields:
+                section_title:
+                    label: Title
+                    size: ''
+                    span: auto
+                    type: richeditor
+                section_subtitle:
+                    label: Subtitle
+                    size: ''
+                    span: full
+                    type: richeditor
+                section_content:
+                    label: Content
+                    size: ''
+                    span: full
+                    type: richeditor
+                section_image:
+                    label: Image
+                    mode: file
+                    span: auto
+                    type: mediafinder
+                image_alignment:
+                    label: 'Image alignment'
+                    options:
+                        left: left
+                        right: right
+                        full: full
+                    span: auto
+                    type: radio
+    summary:
+        label: Summary
+        size: ''
+        span: auto
+        type: richeditor

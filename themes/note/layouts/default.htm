@@ -1,0 +1,236 @@
+description = "Default layout"
+
+[menu]
+start = "id-2"
+activeNode = 0
+listItemClasses = "item"
+primaryClasses = "nav nav-pills"
+secondaryClasses = "dropdown-menu"
+numberOfLevels = 2
+
+[SeoBlogPost]
+post = "post"
+
+[SeoCmsPage]
+==
+
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+        {% component 'SeoCmsPage' %}
+        
+        <meta name="msapplication-TileColor" content="#ffffff">
+        <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+        <meta name="theme-color" content="#ffffff">
+        <meta name="author" content="OctoberCMS">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+        <meta name="generator" content="OctoberCMS">
+        <link href="{{ 'assets/css/style.css?=v1.51'|theme }}" rel="stylesheet">
+        <link rel="apple-touch-icon" sizes="57x57" href="{{ 'assets/images/apple-icon-57x57.png'|theme }}">
+        <link rel="apple-touch-icon" sizes="60x60" href="{{ 'assets/images/apple-icon-60x60.png'|theme }}">
+        <link rel="apple-touch-icon" sizes="72x72" href="{{ 'assets/images/apple-icon-72x72.png'|theme }}">
+        <link rel="apple-touch-icon" sizes="76x76" href="{{ 'assets/images/apple-icon-76x76.png'|theme }}">
+        <link rel="apple-touch-icon" sizes="114x114" href="{{ 'assets/images/apple-icon-114x114.png'|theme }}">
+        <link rel="apple-touch-icon" sizes="120x120" href="{{ 'assets/images/apple-icon-120x120.png'|theme }}">
+        <link rel="apple-touch-icon" sizes="144x144" href="{{ 'assets/images/apple-icon-144x144.png'|theme }}">
+        <link rel="apple-touch-icon" sizes="152x152" href="{{ 'assets/images/apple-icon-152x152.png'|theme }}">
+        <link rel="apple-touch-icon" sizes="180x180" href="{{ 'assets/images/apple-icon-180x180.png'|theme }}">
+        <link rel="icon" type="image/png" sizes="192x192"  href="{{ 'assets/images/android-icon-192x192.png'|theme }}">
+        <link rel="icon" type="image/png" sizes="32x32" href="{{ 'assets/images/favicon-32x32.png'|theme }}">
+        <link rel="icon" type="image/png" sizes="96x96" href="{{ 'assets/images/favicon-96x96.png'|theme }}">
+        <link rel="icon" type="image/png" sizes="16x16" href="{{ 'assets/images/favicon-16x16.png'|theme }}">
+        <link rel="manifest" href="{{ 'assets/images/manifest.json'|theme }}">
+        <script src= "https://unpkg.com/react@16/umd/react.production.min.js"></script>
+        <script src= "https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+        <script src= "https://unpkg.com/babel-standalone@6.15.0/babel.min.js" defer></script>
+        {% styles %}
+    </head>
+    <body>
+        <div class="preloader">
+            <img src="/themes/note/assets/images/note-loader-puls.gif" alt="preloader">
+        </div>
+        <div class="site-wrapper">
+            <!-- Header -->
+            <div class="side-nav">
+
+                {% component 'menu' %}
+            </div>
+            <header id="layout-header" class="header">
+                {% partial 'site/header' %}
+            </header>
+            <div class="logo-in-menu">
+               <a href="/"><i class="icon-asterix"></i>Note</a>
+            </div>
+            <div class="header-holder"></div>
+            <div class="ham-menu-btn">
+                <div class="line-wrapper">
+                <span class="line"></span>
+                <span class="line"></span>
+                <span class="line"></span>
+                </div>
+            </div>
+            <!-- Content -->
+            <main id="layout-content" class="pg-{{ this.page.id }}">
+                {% page %}
+            </main>
+
+            <!-- Footer -->
+            <footer id="layout-footer" class="footer">
+                <div class="container">
+                    {% partial 'site/footer' %}
+                </div>
+            </footer>
+          
+        </div>
+        <!-- Scripts -->
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="{{ 'assets/js/jquery.instagramFeed.min.js'|theme }}"></script>
+        <script type="text/javascript">
+		var token = 'YOUR INSTAGRAM TOKEN',
+		num_photos = 10, // maximum 20
+		container = document.getElementById( 'rudr_instafeed' ), // it is our <ul id="rudr_instafeed">
+		scrElement = document.createElement( 'script' );
+	 
+		window.mishaProcessResult = function( data ) {
+			for( x in data.data ){
+				container.innerHTML += '<li><img src="' + data.data[x].images.low_resolution.url + '"></li>';
+			}
+		}
+		 
+		scrElement.setAttribute( 'src', 'https://api.instagram.com/v1/users/self/media/recent?access_token=' + token + '&count=' + num_photos + '&callback=mishaProcessResult' );
+		
+		document.body.appendChild( scrElement );
+
+        </script>
+        {% framework %}
+        <script type="text/javascript" src="{{ 'assets/js/slick.min.js'|theme }}"></script>
+        <script type="text/javascript" src="{{ 'assets/js/ion.rangeSlider.min.js'|theme }}"></script>
+        <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+        <script>
+            $('.tour-slider').find('.itemList').slick({
+                dots: true,
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                infinite: false,
+                speed: 300,
+                cssEase: 'linear',
+                arrows: false,
+                adaptiveHeight: true
+            });
+             $('.image-slider').slick({
+                dots: true,
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                infinite: true,
+                speed: 300,
+                arrows: false,
+                autoplay: true
+            });
+             $('.slick-tours').slick({
+                dots: true,
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                infinite: true,
+                speed: 300,
+                arrows: true,
+                autoplay:true
+
+            });
+
+            if($(window).width() < 768) {
+                 $('.post-list').slick({
+                    dots: true,
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    infinite: false,
+                    speed: 300,
+                    cssEase: 'linear',
+                    arrows: false,
+                    responsive: [{
+                        breakpoint: 99999,
+                        settings: "unslick"
+                    },{
+                        breakpoint: 768,
+                        settings: {
+                            slidesToShow: 1,
+                            slidesToScroll: 1
+                        }
+                    }]
+                });
+            }
+         // Datepicker FROM date
+        $(function() {
+            if($("#note-datepicker").length > 0) {
+                $("#note-datepicker, #note-datepicker-1").datepicker({
+                    rangeSelect: true,
+                    minDate: 1,
+                    onSelect: function(date) {
+                        console.log(date);
+                        $("#when").attr('value',date);
+                        $("#note-datepicker").hide();
+                        $(this).closest('form').addClass('selected');
+                    }
+                }).position({
+                    my: "left top",
+                    at: "left bottom",
+                    of: $("#note-datepicker"),
+                    collision: "none"
+                }).hide();
+                $("#when").focus(function() {
+                    $("#note-datepicker").show();
+                });
+            }
+        });
+        $(document).on('click touchstart', function(event) {
+            if (!$(event.target).closest('.pick-date,.ui-datepicker-prev, .ui-datepicker-next').length) {
+                // Hide the menus.
+                $('#note-datepicker').hide();
+            }
+        });
+        //-- preloader
+        $(document).ready(function() {
+            $(window).on("load", function() {
+                preloaderFadeOutTime = 400;
+                function hidePreloader() {
+                    var preloader = $('.preloader');
+                    var preloaderSpin = $('.preloader img');
+                    preloaderSpin.hide();
+                    preloader.fadeOut(preloaderFadeOutTime);
+                }
+                hidePreloader();
+            });
+        });
+
+        $(document).ready(function(){
+            if($(window).width() < 1370) {
+                $('.note-filter').removeClass('showFilter');
+            }
+        });
+
+        function showSideMenu() {
+            if($(window).width() > 1370 && $(".pg-home")[0])  {
+                $('.side-nav').addClass('open');
+                $('.ham-menu-btn').addClass('is-active');
+            }else {
+                $('.side-nav').removeClass('open');
+                $('.ham-menu-btn').removeClass('is-active');
+            }
+        }
+
+        showSideMenu();
+        
+        $(window).resize(function(){
+            showSideMenu();
+        });
+        </script>
+        <script type="text/babel" src="{{ 'assets/js/components/search.js'|theme }}"></script>
+        <script src="{{ 'assets/js/filter.js'|theme }}"></script>
+        <script type="text/javascript" src="{{ 'assets/js/main.js?v=1.313'|theme }}"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD0RJihV7F3y_80CsXjKJOsmOHz5h48SL0&callback=initMap"
+    async defer></script>
+    </body>
+</html>

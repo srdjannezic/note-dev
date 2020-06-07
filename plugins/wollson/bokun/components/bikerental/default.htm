@@ -1,0 +1,130 @@
+
+<div id="bokun-w65122_3b80e7d1_edab_4101_9bf4_9013a157e8e0">Loading...</div><script type="text/javascript">
+var w65122_3b80e7d1_edab_4101_9bf4_9013a157e8e0;
+(function(d, t) {
+  var host = 'widgets.bokun.io';
+  var frameUrl = 'https://' + host + '/widgets/65122?bookingChannelUUID=3179d4ac-c808-40b4-935e-48dead262d83&amp;carRentalId=518&amp;lang=en&amp;ccy=USD&amp;hash=w65122_3b80e7d1_edab_4101_9bf4_9013a157e8e0';
+  var s = d.createElement(t), options = {'host': host, 'frameUrl': frameUrl, 'widgetHash':'w65122_3b80e7d1_edab_4101_9bf4_9013a157e8e0', 'autoResize':true,'height':'','width':'100%', 'minHeight': 0,'async':true, 'ssl':true, 'affiliateTrackingCode': '', 'transientSession': true, 'cookieLifetime': 43200 };
+  s.src = 'https://' + host + '/assets/javascripts/widgets/embedder.js';
+  s.onload = s.onreadystatechange = function() {
+    var rs = this.readyState; if (rs) if (rs != 'complete') if (rs != 'loaded') return;
+    try { 
+      w65122_3b80e7d1_edab_4101_9bf4_9013a157e8e0 = new BokunWidgetEmbedder(); w65122_3b80e7d1_edab_4101_9bf4_9013a157e8e0.initialize(options); w65122_3b80e7d1_edab_4101_9bf4_9013a157e8e0.display();
+    } catch (e) {}
+  };
+  var scr = d.getElementsByTagName(t)[0], par = scr.parentNode; par.insertBefore(s, scr);
+})(document, 'script');
+</script>
+
+<!-- {{ form_ajax(__SELF__ ~ '::onRentBike',{ class: 'form-rent'}) }}
+
+    <div class="form-block">
+        <p>Pick a City</p>
+        <div class="input-wrapper right select-box">
+             <select name="city">
+                <option value="">Pick a City</option>
+                {% for dest in destinations %}
+                    {% if dest.name != 'Vienna' %}
+                    <option value="{{ dest.name }}">{{ dest.name }}</option>
+                    {% endif %}
+                {% endfor %}
+            </select> 
+        </div>
+    </div> 
+
+    <div class="form-block with-date">
+        <div class="left">
+            <p>Pick a date</p>
+            <div class="input-wrapper pick-date input-date-wrapper">
+                <input type="text" id="when" readonly="true" name="pick-a-date" placeholder="Pick a date">
+                <div id="note-datepicker" class="note-datepicker"></div>
+                <i class="icon-calendar"></i>
+            </div>
+        </div>
+       
+        <div class="right">
+            <p>Duration:</p>
+            <div class="check-wrapper">
+                <input type="checkbox" name="duration" value="1-4h" id="time-1"/><label for="time-1">1-4h</label>
+                <span class="checkmark">&nbsp;</span>
+            </div>
+            <div class="check-wrapper">
+                <input type="checkbox" name="duration" value="1-4h" id="time-2"/><label for="time-2">1d</label>
+                <span class="checkmark">&nbsp;</span>
+            </div>
+            <div class="check-wrapper">
+                <input type="checkbox" name="duration" value="1-4h" id="time-3"/><label for="time-3">more than 1d</label>
+                <span class="checkmark">&nbsp;</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-block">
+        <div class="left">
+            <p>Type of bike</p>
+            <div class="input-wrapper left select-box small-input">
+                <select name="bike_type" id="bike_type">
+                    <option value=""></option>
+                    {% for vehicle in vehicles %}
+                        {% for bike in vehicle %}
+                            {% for type in bike.carTypes %}
+                                <option value="{{ type.id }}">{{ type.title }}</option>
+                            {% endfor %}
+                        {% endfor %}
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+        <div class="right">
+            <p>No. of people</p>
+            <div class="input-wrapper right small-input">
+                <input type="text" id="num-people" name="num-people">
+            </div>
+        </div>
+    </div> 
+
+    <div class="form-block three-row">
+        <p>Additional gear</p>
+        <div class="check-wrapper">
+            <input type="checkbox" name="additional-gear" value="trailer" id="gear-1"/><label for="gear-1">Trailer</label>
+            <span class="checkmark">&nbsp;</span>
+        </div>
+        <div class="check-wrapper">
+            <input type="checkbox" name="additional-gear" value="child seat" id="gear-2" /><label for="gear-2">Child seat</label>
+            <span class="checkmark">&nbsp;</span>
+        </div>
+        <div class="check-wrapper">
+            <input type="checkbox" name="additional-gear" value="helmet" id="gear-3" /><label for="gear-3">Helmet</label>
+            <span class="checkmark">&nbsp;</span>
+        </div>
+    </div>
+    
+    <div class="form-block">
+        <p>* First Name</p>
+        <div class="input-wrapper">
+            <input type="text" id="name" name="name">
+        </div>
+    </div>
+    <div class="form-block">
+        <p>* Last Name</p>
+        <div class="input-wrapper">
+            <input type="text" id="lastname" name="lastname">
+        </div>
+    </div>
+    <div class="form-block">
+        <p>* e-mail</p>
+        <div class="input-wrapper">
+            <input type="text" id="email" name="email">
+        </div>
+    </div>
+    <div class="form-block">
+        <p>* Phone Number</p>
+        <div class="input-wrapper">
+            <input type="text" id="phone" name="phone">
+        </div>
+    </div>
+    <div id="{{ __SELF__ }}_forms_flash"></div>
+   <div class="btn-wrapper btn-green">
+        <span><input type="submit" class="rent-start"></span>
+    </div>
+{{ form_close() }} -->

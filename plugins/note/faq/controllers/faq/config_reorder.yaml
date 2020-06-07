@@ -1,0 +1,5 @@
+title: FAQ
+modelClass: Note\Faq\Models\FAQ
+nameFrom: id
+toolbar:
+    buttons: reorder_toolbar

@@ -1,0 +1,54 @@
+//-------------------------
+//----------------VARIABLES
+//-------------------------
+
+//-----COLORS
+$c-black           : #000;
+$c-white           : #fff;
+$c-mainGrey        : #ebeef2;
+$c-fontGrey        : #717989;
+$c-red             : #eb4f6f;
+$c-blue            : #6593f5;
+$c-mainPurple      : #472567;
+$c-textPurple      : #481c6e;
+$c-lightPurple     : #d0b3d5;
+$c-shadowPurple    : #573478;
+$c-lightGrey       : #dadada;
+$c-bgGrey          : #ebebeb;
+$c-mainGreen       : #1aa29b;
+$c-mainYellow      : #f6ed08;
+$c-textGrey        : #4d4d4f;
+$c-simpleGrey      : #565656;
+
+
+
+
+//-----PATHS
+$localFontBase: "/themes/note/assets/fonts/";
+$imgBaseUrl   : "/images/";
+
+
+//------DIMENSIONS
+$baseFontSize: 10;
+$fullWidth: 100%;
+$fullHeight: 100%;
+
+//------FONT
+$fontDefault: Arial, Helvetica, Tahoma, sans-serif;
+$baseFont: 'GalanoGrotesque', sans-serif;
+$baseFont-bold: 'GalanoGrotesqueBold', sans-serif;
+$baseFont-semiBold: 'GalanoGrotesqueSemiBold', sans-serif;
+$baseFont-med: 'GalanoGrotesqueMedium', sans-serif;
+$baseFont-light: 'GalanoGrotesqueLight', sans-serif;
+
+$styledFont: 'NoeDisplay-Regular', sans-serif;
+$styledFont-bold: 'NoeDisplay-Bold', sans-serif;
+
+
+
+//------MEDIA QUERIES
+$desktop--Large  : 1700px;
+$desktop         : 1440px;
+$tablet          : 860px;
+$mobile			 : 767px;
+

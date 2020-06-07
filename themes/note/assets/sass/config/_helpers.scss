@@ -1,0 +1,66 @@
+//-------------------------
+//------------------HELPERS
+//-------------------------
+%clearfix {
+    *zoom: 1;
+    &:before,
+    &:after {
+        content: "";
+        display: table;
+    }
+    &:after {
+        clear: both;
+    }
+}
+
+%invisible {
+    width      : 1px;
+    height     : 1px;
+
+    position   : absolute;
+    left       : 0;
+
+    text-indent: -5000px;
+
+    overflow   : hidden;
+}
+
+.noScroll {
+	overflow: hidden;
+}
+
+.clear           { clear: both; }
+
+.hide            { display: none; }
+.block           { display: block; }
+.inline-block    { display: inline-block; }
+
+.fleft           { float: left; }
+.fright          { float: right; }
+
+.wrapUp {
+    height: auto;
+    overflow: hidden;
+}
+
+.expand {
+    height: auto!important;
+}
+
+.show {
+    display: block;
+}
+
+.show-popup {
+    z-index: 555!important;
+}
+
+.imgWrapper,
+.imgWrapper--small,
+.imgWrapper--mid {
+    img {
+        width: 100%;
+    }
+}
+
+

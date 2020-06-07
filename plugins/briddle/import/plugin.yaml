@@ -1,0 +1,10 @@
+plugin:
+    name: 'briddle.import::lang.plugin.name'
+    description: 'briddle.import::lang.plugin.description'
+    author: Briddle
+    icon: oc-icon-upload
+    homepage: 'https://www.briddle.nl'
+permissions:
+    import:
+        tab: import
+        label: 'Import'

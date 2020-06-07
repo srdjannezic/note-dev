@@ -1,0 +1,11 @@
+name: Pages
+modelClass: Wollson\Pages\Models\Pages
+form: $/wollson/pages/models/pages/fields.yaml
+defaultRedirect: wollson/pages/pages
+create:
+    redirect: 'wollson/pages/pages/update/:id'
+    redirectClose: wollson/pages/pages
+update:
+    redirect: wollson/pages/pages
+    redirectClose: wollson/pages/pages
+preview: {  }

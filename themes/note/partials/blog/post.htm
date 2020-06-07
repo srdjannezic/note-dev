@@ -1,0 +1,71 @@
+{% set post = __SELF__.post %}
+{% set path = '/storage/app/media' ~ post.cover_image %}
+
+{% if post.cover_image %}
+    <div class="featured-image">
+        <img
+            src="{{ url(path) }}" style="max-width: 100%" />
+    </div>
+{% endif %}
+<div class="container blog-single-body">
+	<p class="info">
+	    Posted
+	    {% if post.categories.count %} in
+	        {% for category in post.categories %}
+	            <a href="{{ category.url }}">{{ category.name }}</a>{% if not loop.last %}, {% endif %}
+	        {% endfor %}
+	    {% endif %}
+	    on {{ post.published_at|date('M d, Y') }}
+	</p>
+	<h2 class="post-title">{{ post.title|raw }}</h2>
+
+	<div class="content-intro">{{ post.content_html|raw }}</div>
+
+	
+	{% for section in post.sections %}
+
+		{% set side_class = "left" %}
+		{% set opside_class = "right" %}
+
+		{% if section.image_align == "left" %}
+			{% set side_class = "right" %}
+			{% set opside_class = "left" %}		
+		{% endif %}
+		<div class="single-media-box">
+		<section class="content-box">
+			<div class="section-title">{{ section.section_title |raw }}</div>
+
+			{% if section.section_image and 
+				(section.image_align == 'left' or section.image_align == 'right') %}
+
+				{% set section_img = '/storage/app/media/' ~ section.section_image %}
+
+				<div class="left">
+					{% if section.image_align == 'left' %}
+					
+					<img src="{{ url(section_img) }}" />
+					{% endif %}
+					{% if section.image_align == 'right' %}
+						{{ section.section_content |raw }}
+					{% endif %}
+				</div>
+				<div class="right">
+					{% if section.image_align == 'left' %}
+						{{ section.section_content |raw }}
+					{% endif %}
+					{% if section.image_align == 'right' %}
+						<img src="{{ url(section_img) }}" />
+					{% endif %}
+				</div>
+
+			{% else %}
+				{{ section.section_content |raw }}
+				{% if section.section_image %}
+					<img src="{{ url(section_img) }}" />
+				{% endif %}
+			{% endif %}
+		</section>
+		</div>
+		{% endfor %}
+	
+</div>

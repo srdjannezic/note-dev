@@ -1,0 +1,15 @@
+{% if this.page.id == 'home' and __SELF__.tours %}
+        <div class="container">
+            <div class="tour-slider">
+{% endif %}
+
+<form class="filterTours" data-last="{{ last }}">
+<div class="itemList">
+{% partial 'tours/tours' %}
+</div>
+</form>
+
+{% if this.page.id == 'home' and __SELF__.tours %}
+</div>
+</div>
+{% endif %}

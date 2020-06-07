@@ -1,0 +1,435 @@
+//-------------------------
+//----------- BOOK POPUP
+//-------------------------
+
+.pg-tour {
+	.book-pay .note-datepicker {
+		position: static!important;
+		padding: 4% 0%;
+		border-top: none;
+		box-shadow: none;
+		display: block!important;
+		width: 600px;
+		margin: 0 auto;
+		@include breakpoint(mobile) {
+			width: 100%;
+			padding: 5%;
+		}
+	}
+	.ui-datepicker-calendar {
+		width: 100%;
+	}
+	.book-popup.book-pay {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		transition: all ease 0.4s;
+		transform: translateY(100%);
+		visibility: hidden;
+		.input-wrapper {
+			float: none;
+		}
+		.pick-date {
+			height: auto;
+			overflow: hidden;
+			background: transparent;
+		}
+		&.showPopup {
+			transform: translateY(0%);
+			visibility: visible;
+		}
+		#when {
+			display: none;
+		}
+	}
+	.book-popup .ui-datepicker-title {
+		font-size: 18px;
+		@include breakpoint(mobile) {
+			font-size: 16px;
+		}
+	}
+	.ui-datepicker-calendar thead th {
+		font-family: $baseFont-med;
+		font-size: 18px;
+		@include breakpoint(mobile) {
+			font-size: 16px;
+		}
+	}
+	.ui-datepicker-prev.ui-corner-all {
+		left: 6%;	
+	}
+
+	.ui-datepicker-next.ui-corner-all {
+		right: 6%;
+	}
+	.ui-datepicker-calendar {
+		th,td {
+			width: 14.28%;
+			a,&>span {
+				padding: 12px 0 16px;
+				font-size: 18px;
+				@include breakpoint(mobile) {
+					font-size: 16px;
+					padding: 12px 0 10px;
+				}
+			}
+		}
+	}
+	.book-popup-default .ui-datepicker-calendar {
+		th,td {
+			a,&>span {
+				padding: 7px 0 11px;
+				font-size: 15px;
+				@include breakpoint(mobile) {
+					padding: 8px 0 12px;
+				}
+			}
+		}
+	}
+}
+
+.step-3 {
+	@include breakpoint(mobile) {
+		overflow-y: scroll;
+		height: 100%;
+	}
+	.step-wrapper {
+		height: 150vh;
+	}
+}
+
+.book-popup {
+	position: absolute;
+	top: 20rem;
+	width: 700px;
+    left: 0;
+	padding: 45px 5rem 8rem;
+	background-color: $c-bgGrey;
+	z-index: 999;
+	@include breakpoint(mobile) {
+		position: fixed;
+		width: 100%;
+		top: 0rem;
+		padding: 45px 4rem 6rem;
+	}
+	&__header {
+		position: fixed;
+		height: 45px;
+		top: 0;
+		width: 100%;
+		left: 0;
+		background-color: #bdbdbd;
+		z-index: 7;
+		h2 {
+			padding: 15px 20px 20px;
+			height: 100%;
+			font-family: $baseFont-med;
+			line-height: 0.5;
+			@include breakpoint(mobile) {
+				padding: 19px 20px 17px;
+			}
+		}
+	}
+	h3 {
+		font-family: $baseFont-med;
+		font-size: 20px;
+		color: $c-textGrey;
+	    width: 80%;
+	    text-align: center;
+	    line-height: 1.2;
+	    margin: 20px auto 4rem;
+	    @include breakpoint(mobile) {
+	    	width: 100%;
+	    	margin-bottom: 40px;
+	    }
+	    span {
+	    	display: block;
+	    	margin-bottom: 1.2rem;
+	    	font-size: 16px;
+	    	color: $c-mainPurple;
+	    }
+	}
+	
+	.btn-green {
+		width: 100%;
+		height: 50px;
+		position: relative;
+		padding: 0;
+		cursor: pointer;
+		text-align: center;
+		input {
+			width: 100%;
+			height: 100%;
+			background: transparent;
+			font-family: $baseFont-med;
+		    font-size: 17px;
+    		line-height: 1;
+
+			color: $c-white;
+			text-transform: uppercase;
+			cursor: pointer;
+
+		}
+		span {
+			position: relative;
+			top: -2px;
+		}
+	}
+	.select-box {
+		position: relative;
+		&:after {
+			position: absolute;
+		    top: 50%;
+		    transform: translateY(-50%);
+		    right: 15px;
+		    width: 19px;
+            height: 13px;
+		    background-image: url(../images/arrow-down.png);
+		    background-size: 100%;
+		    background-repeat: no-repeat;
+		    z-index: 2;
+		    content: "";
+		}
+		select {
+			color: #4d4d4f;
+		}
+	}
+	.input-wrapper {
+		float: left;
+		width: 100%;
+		margin-bottom: 24px;
+		height: 50px;
+		background-color: #fff;
+		@include breakpoint(mobile) {
+			height: 40px;
+		}
+		&:nth-child(2n) {
+			margin-right: 0;
+		}
+		input,
+		select {
+			position: relative;
+			width: 100%;
+			height: 100%;
+			font-family: $baseFont;
+			padding: 0 16px;
+			border: none;
+			outline: none;
+		    -webkit-appearance: none;
+    		appearance: none;
+    		color: #4d4d4f;
+    		background-color: transparent;
+    		z-index: 5;
+
+			&::placeholder {
+    			color: #4d4d4f;
+    		}
+		}
+	}
+	// .ui-datepicker-calendar td, .ui-datepicker-calendar th {
+	// 	padding: 9px;
+	// }
+	.ui-datepicker-title {
+		font-size: 16px;
+	}
+	.ui-datepicker-calendar {
+		font-size: 14px;
+	}
+}
+
+.book-full {
+	.input-wrapper {
+		width: 48.5%;
+		float: left;
+		margin-right: 3%;
+		@include breakpoint(mobile) {
+			width: 100%;
+			float: none;
+			margin-right: 0;
+		}
+		&:nth-child(2) {
+			margin-right: 0;
+		}
+	}
+}
+
+.book-part {
+	width: 48.5%;
+	float: left;
+	margin-right: 3%;
+	@include breakpoint(mobile) {
+		width: 100%;
+		float: none;
+		margin-right: 0;
+		// overflow: hidden;
+	}
+	&:nth-of-type(2) {
+		margin-right: 0;
+	}
+	.input-wrapper {
+		@include breakpoint(mobile) {
+			float: none;
+		}
+	}
+ }
+
+.book-close {
+	position: absolute;
+	right: 2.5rem;
+	top: 17px;
+	border: none;
+	background: none;
+	font-size: 24px;
+	// font-family: $baseFont-med;
+	line-height: 0.5;
+	outline: none;
+	cursor: pointer;
+}
+
+.book-column {
+	
+
+}
+
+.steps-nav {
+	width: 100%;
+	margin: 50px auto;
+	@include breakpoint(mobile) {
+		margin: 24px 0;
+	}
+}
+
+.step-1,
+.step-2,
+.step-3 {
+	position: absolute;
+	width: 100%;
+	left: 0;
+	transition: all ease 0.4s;
+	height: 100%;
+	transform: translateY(100%);
+	-webkit-box-shadow: 0px 0px 9px -1px rgba(0,0,0,0.75);
+	-moz-box-shadow: 0px 0px 9px -1px rgba(0,0,0,0.75);
+	box-shadow: 0px 0px 9px -1px rgba(0,0,0,0.75);
+	background-color: $c-bgGrey;
+	&.moveIt {
+		transform: translateY(0%);
+	}
+	&.hideMove {
+		visibility: hidden;
+	}
+}
+
+.step-1 {
+	transform: none;
+	z-index: 2;
+}
+.step-2 {
+	z-index: 3;
+}
+.step-3 {
+	z-index: 4;
+}
+
+
+
+.book-prev,
+.book-next {
+	display: inline-block;
+	padding: 10px 20px 14px;
+	width: 150px;
+	background: $c-mainGreen;
+	color: $c-white;
+	border: 1px solid $c-mainGreen;
+	cursor: pointer;
+	text-align: center;
+	@include breakpoint(mobile) {
+		width: 48%;
+		padding: 14px 10px 14px;
+	}
+}
+
+.book-prev {
+	border: 1px solid #909090;
+	background: transparent;
+	color: #909090;
+}
+
+.book-next {
+	float: right;
+}
+
+.step-wrapper {
+	width: 600px;
+	margin: 0 auto;
+	@include breakpoint(mobile) {
+		width: 88%;
+	}
+}
+
+.error-message {
+	display: none;
+	font-size: 12px;
+	margin-top: 4px;
+}
+
+
+.errorInput {
+	border: 1px solid red!important;
+	.error-message {
+		display: block;
+		color: red;
+	}
+}
+
+.check-wrapper.errorInput {
+	border: none!important;
+	.checkmark {
+		border: 1px solid red;
+	}
+}
+
+.book-popup {
+	.preloader-paypal {
+		@extend .preloader;
+	    background-color: #ebebeb;
+		display: none;
+		position: absolute;
+		z-index: 4;
+	}
+}
+
+.pg-tour .book-popup-default {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0;
+
+	.popup-wrapper {
+		width: 600px;
+		margin: 0 auto;
+		@include breakpoint(mobile) {
+			width: 100%;
+			overflow-y: auto;
+   			height: 100%;
+		}
+	}
+}
+
+.pg-tour .book-popup-default .note-datepicker {
+	position: absolute;
+	width: 100%;
+	top: 100%!important;
+}
+
+.book-popup-default {
+	transition: all ease 0.3s;
+	transform: translateY(100%);
+	visibility: hidden;
+	&.showPopup {
+		transform: translateY(0%);
+		visibility: visible;
+	}
+}

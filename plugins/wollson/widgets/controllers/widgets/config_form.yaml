@@ -1,0 +1,11 @@
+name: Widgets
+modelClass: Wollson\Widgets\Models\Widgets
+form: $/wollson/widgets/models/widgets/fields.yaml
+defaultRedirect: wollson/widgets/widgets
+create:
+    redirect: 'wollson/widgets/widgets/update/:id'
+    redirectClose: wollson/widgets/widgets
+update:
+    redirect: wollson/widgets/widgets
+    redirectClose: wollson/widgets/widgets
+preview: {  }

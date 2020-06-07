@@ -1,0 +1,133 @@
+fields:
+    is_on_demand:
+        label: 'On Demand Booking?'
+        span: auto
+        type: switch
+    title:
+        label: Title
+        span: full
+        type: text
+    group_type:
+        label: 'Private / Group'
+        options:
+            Private: Private
+            Group: Group
+        span: auto
+        type: checkboxlist
+    duration:
+        label: Duration
+        span: auto
+        type: number
+    duration_value:
+        label: Value
+        options:
+            h: hour
+            d: day
+            m: month
+            'y': year
+        span: auto
+        type: dropdown
+    tour_date:
+        label: 'Tour Date'
+        mode: datetime
+        span: auto
+        type: datepicker
+    min_people:
+        label: 'Min People'
+        span: auto
+        type: text
+    max_people:
+        label: 'Max People'
+        span: auto
+        type: text
+    type:
+        label: 'Tour Type'
+        nameFrom: title
+        descriptionFrom: description
+        span: auto
+        type: relation
+    price:
+        label: Price
+        span: auto
+        type: text
+    currency:
+        label: Currency
+        options:
+            euro: euro
+            dollar: dollar
+            dinar: dinar
+            pound: pound
+        span: auto
+        type: dropdown
+    transportation:
+        label: Transportation
+        nameFrom: name
+        span: auto
+        type: relation
+    style:
+        label: Style
+        nameFrom: title
+        descriptionFrom: description
+        span: auto
+        type: relation
+    gallery:
+        label: 'Cover Image'
+        mode: file
+        span: auto
+        type: mediafinder
+    featured_media:
+        label: 'Featured Image'
+        mode: file
+        span: auto
+        type: mediafinder
+    other_images:
+        label: 'Slider images'
+        prompt: 'Add new item'
+        span: auto
+        type: repeater
+        form:
+            fields:
+                slide_image:
+                    label: 'Slide image'
+                    mode: file
+                    prompt: 'Add new item'
+                    span: full
+                    type: mediafinder
+    content:
+        label: Content
+        size: ''
+        span: full
+        type: richeditor
+    summary:
+        label: Summary
+        size: ''
+        span: full
+        type: richeditor
+    highlights:
+        label: Highlights
+        prompt: 'Add new item'
+        span: auto
+        type: repeater
+        form:
+            fields:
+                highlight_icon:
+                    label: Icon
+                    mode: file
+                    span: auto
+                    type: mediafinder
+                highlight_title:
+                    label: Title
+                    size: ''
+                    span: left
+                    type: textarea
+                highlight_content:
+                    label: Content
+                    size: ''
+                    span: left
+                    type: richeditor
+    destinations:
+        label: Destination
+        nameFrom: name
+        descriptionFrom: summary
+        span: auto
+        type: relation

@@ -1,0 +1,49 @@
+{% set tours = __SELF__.tours %}
+
+{% for tour in tours %}
+	{% set image_src = '/storage/app/media/' ~ tour.featured_media %}
+
+	<article class="tour-card">
+		<a href="/tour/{{ tour.slug }}">
+			<div class="right">
+				<img src="{{ url(image_src) }}" />
+			</div>
+			<div class="left">
+				<h2>{{ tour.title }}</h2>
+				{% if type == 'list' %}
+				<div class="tag-wrapper">
+					{% for style in tour.style %}
+							<div class="tour-tag">
+								{{ style.title }}
+							</div>
+					{% endfor %}
+				</div>
+				{% endif %}
+				<div class="summary">{{ tour.summary | raw }}</div>
+				<div class="card-info">
+					{% if type == 'list' %}
+						<div class="details">
+							<span>Duration: <strong>{{ tour.duration }} {{ tour.duration_value }}</strong></span>
+							<span>No. of people: <strong>up to {{ tour.max_people }}</strong></span>
+							<span>Transportation: <strong>
+							{% for item in tour.transportation %}
+								{{ item.name }}
+							{% endfor %}
+							</strong></span>
+						</div>
+					{% endif %}
+					<div class="price"><span>Price: </span><b>{{ tour.price }}&euro;</b></div>
+					{% if type != 'list' %}
+						{% for style in tour.style %}
+							<div class="tour-tag">
+								{{ style.title }}
+							</div>
+						{% endfor %}
+					{% endif %}
+				</div>
+			</div>
+			
+		</a>
+	</article>
+
+{% endfor %}

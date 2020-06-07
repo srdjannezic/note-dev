@@ -1,0 +1,10 @@
+name: Styles
+form: $/note/tours/models/styles/fields.yaml
+modelClass: Note\Tours\Models\Styles
+defaultRedirect: note/tours/styles
+create:
+    redirect: 'note/tours/styles/update/:id'
+    redirectClose: note/tours/styles
+update:
+    redirect: note/tours/styles
+    redirectClose: note/tours/styles

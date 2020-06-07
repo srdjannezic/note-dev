@@ -1,0 +1,70 @@
+
+<div class="book-popup book-popup-default">
+    <div class="popup-wrapper">
+        <h3><span>Welcome to Note!</span> If you want to book a tour or find out more about.</h3>
+        <button class="book-close">&#10005;</button>
+         {{ form_ajax(__SELF__ ~ '::onFormSubmit') }}
+
+
+        <input type="hidden" class="tour-name" name="Tour" value="">
+        
+        <div class="book-column book-part">
+
+            <div class="input-wrapper">
+                <input type="text" id="name" name="name" placeholder="* Name">
+            </div> 
+
+            <div class="input-wrapper">
+                <input type="text" id="phone" name="phone" placeholder="* Telephone Number">
+            </div>    
+
+            
+
+            <div class="input-wrapper">
+                <input type="text" id="num_people" name="num_people" placeholder="* Number of people">
+            </div> 
+        </div>
+
+        <div class="book-column book-part">
+            <div class="input-wrapper">
+                <input type="text" id="email" name="email" placeholder="* E-mail">
+            </div> 
+            <div class="input-wrapper input-date-wrapper pick-date">
+                <input type="text" id="when" readonly="true" name="date" placeholder="Date of Your Tour">
+                <div id="note-datepicker" class="note-datepicker"></div>
+                <i class="icon-calendar"></i>
+            </div> 
+             <div class="input-wrapper select-box">
+                <select name="rent_date">
+                    <option value="">Prefered starting time</option><option value="08.00">08.00</option><option value="08.30">08.30</option><option value="09.00">09.00</option><option value="09.30">09.30</option><option value="10.00">10.00</option><option value="10.30">10.30</option><option value="11.00">11.00</option><option value="11.30">11.30</option><option value="12.00">12.00</option><option value="12.30">12.30</option><option value="13.00">13.00</option><option value="13.30">13.30</option><option value="14.00">14.00</option><option value="14.30">14.30</option><option value="15.00">15.00</option><option value="15.30">15.30</option><option value="16.00">16.00</option><option value="16.30">16.30</option><option value="17.00">17.00</option>
+                </select>
+            </div> 
+           
+        </div>
+
+        <div class="book-column book-full">
+            <div class="input-wrapper select-box">
+                <select name="hear_from">
+                    <option value="">How did you hear about us?</option>
+                    <option value="">---</option><option value="TripAdvisor">TripAdvisor</option><option value="Google Maps">Google Maps</option><option value="Internet">Internet</option><option value="Social Media">Social Media</option><option value="Friend recommendation">Friend recommendation</option><option value="Hotel/Hostel recommendation">Hotel/Hostel recommendation</option><option value="Other">Other</option>
+                </select>
+            </div>
+            <div class="input-wrapper">
+                <input type="text" id="other" name="other" placeholder="If other, please specify">
+            </div>    
+        </div>
+
+         <div class="input-wrapper">
+                <input type="textarea" id="requests" name="requests" placeholder="Your remarks / request">
+            </div>   
+
+            {% partial '@recaptcha' %}
+            <div id="{{ __SELF__ }}_forms_flash"></div>
+
+        <div class="btn-wrapper btn-green">
+        {{ form_submit() }}
+        </div>
+    {{ form_close() }}
+    </div>
+</div>
+

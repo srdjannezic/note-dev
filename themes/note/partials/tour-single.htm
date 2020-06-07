@@ -1,0 +1,200 @@
+{% set currency = tour.currency %}
+
+{% if currency == 'euro' %}
+	{% set currency = '&euro;' %}
+{% elseif currency == 'dollar' %}
+	{% set currency = '&dollar;' %}
+{% elseif currency == 'pound' %}
+	{% set currency = '&pound;' %}
+{% endif %}
+
+{% set dest_counter = 1 %}
+
+{% set duration_short = tour.duration_value %}
+{% if tour.duration_value == 'hours' %}
+	{% set duration_short = 'h' %}
+{% elseif tour.duration_value == 'months' %}
+	{% set duration_short = 'm' %}
+{% elseif tour.duration_value == 'days' %}
+	{% set duration_short = 'd' %}
+{% elseif tour.duration_value == 'years' %}
+	{% set duration_short = 'y' %}
+{% endif %}
+
+{% set path = '/storage/app/media' %}
+
+<article>
+	<section class="single-head-info">
+		<div class="container">
+			<div class="info-left">
+				<h2 class="tour-title">{{ tour.name }}</h2>
+				{% for dest in tour.destinations %}
+					<h4>{{ dest.name }} ({{ dest.country }}){% if dest_counter < tour.destinations.count %}, {% endif %}</h4>
+					{% set dest_counter = dest_counter + 1 %}
+				{% endfor %}
+
+				<div class="group-type">
+					Tour option: 
+					<span>
+					{% if tour.group_type|length > 1 %}
+						{{ tour.group_type | first }} / {{ tour.group_type | last }}
+					{% else %}
+						{% if tour.group_type != 0 %}
+						{{ tour.group_type | first }}
+						{% endif %}
+					{% endif %}
+					</span>
+				</div>
+
+				<div class="tag-wrapper">
+				{% for style in tour.style %}
+					<div class="tour-tag">
+						{{ style.title }}
+					</div>
+				{% endfor %}
+				</div>
+			</div>
+
+			<div class="info-right">
+				<ul class="info-top">
+					<li class="icon-time">{{ tour.duration }}{{ tour.duration_value }}</li>
+					<!-- <li class="icon-people">up to {{ tour.max_people }}</li> -->
+						{% set tr_counter = 0 %}
+						{% for item in tour.transportation %}
+							<li class="{{ item.icon }}">
+							{% if tour.transportation|length == 1 %}
+							<span>{{ item.name }}</span>
+							{% else %}
+								<span>{{ item.name }}</span>
+							{% endif %}
+							</li>
+						{% endfor %}
+					
+				</ul>
+				
+				<div class="price">
+					<!-- <span>Price per person:</span> -->
+					<b>{% if tour.group_type|first == 'Private' %} <i>from</i> {% endif %} {{ tour.price + 0 }} {{ currency | raw }} <em>/ person</em></b>
+				</div>
+				<div class="book-tour">
+					{% if tour.is_on_demand %}
+					<a href="#" class="btn-green book-demand">Book Now</a>
+					{% else %}
+					<a href="#" class="btn-green book-now">Book Now</a>
+					{% endif %}
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="single-mosaic">
+		<div class="container">
+			<div class="mosaic-left {% if tour.other_images %} slick-tours {% endif %}">
+				{% set imgpath = path ~ tour.gallery %}
+				{% if tour.bokun_media %}
+					{% set imgpath = tour.bokun_media %}
+				{% endif %}
+				<img src="{{ url(imgpath) }}" />
+
+				{% for item in tour.other_images %}
+					{% set slidepath = path ~ item.slide_image %}
+					<img src="{{ url(slidepath) }}" />
+				{% endfor %}
+
+			</div>
+			<div class="mosaic-right">
+				<!-- 4 random images -->
+			</div>
+		</div>
+	</section>
+
+	<section class="single-content">
+		<div class="container">
+			{{ tour.content | raw }}
+		</div>
+	</section>
+</article>
+{% if tour.highlights %}
+<section class="single-highlights">
+	<div class="container">
+		<h3 class="section-subtitle">All about this tour</h3>
+		<h2 class="section-title"><strong>Highlights</strong></h2>
+		{% for item in tour.highlights %}
+		{% set img = "/storage/app/media" ~ item.highlight_icon %}
+		<div class="highlight-box">
+			<img src="{{ url(img) }}" />
+			<h4>{{ item.highlight_title|raw }}</h4>
+			{{ item.highlight_content|raw }}
+		</div>
+		{% endfor %}
+	</div>
+</section>
+{% endif %}
+
+<section class="single-tour-locations">
+	<div class="container">
+		<h2>Tour <strong>locations</strong></h2>
+		<p>See all the stops on this tour and find some hints by
+	clicking on the location icon.</p>
+		<div class="tour-map">
+		    
+
+	    	<div id="map" style="width: 100%; height: 400px;"></div>
+		    {% set markers_counter = 0 %}
+		    <script>
+		    var locations = [{% for item in tour.bokun_points %}[{{ markers_counter }},{{ item.latitude }},{{ item.longitude }}],{% set markers_counter = markers_counter + 1 %}{% endfor %}];
+		      var map;
+		      function initMap() {
+		        map = new google.maps.Map(document.getElementById('map'), {
+		          center: {lat: locations[0][1], lng: locations[0][2]},
+		          zoom: 10
+		        });
+				var infowindow = new google.maps.InfoWindow();
+
+			    var marker, i, pin;
+
+			    for (i = 0; i < locations.length; i++) {  
+			    	pin = {
+			    		url: '/themes/note/assets/images/map-pin.svg',
+			    		scaledSize: new google.maps.Size(30, 30)
+			    	}
+			      marker = new google.maps.Marker({
+			        position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+			        map: map,
+			        icon: pin,
+			      });
+
+			      google.maps.event.addListener(marker, 'click', (function(marker, i) {
+			        return function() {
+			          infowindow.setContent(locations[i][0]);
+			          infowindow.open(map, marker);
+			        }
+			      })(marker, i));
+			    }
+		      }
+		    </script>
+		</div>
+</section>
+
+<section class="single-location-about">
+	<div class="container">
+		{% for item in tour.destinations %}
+		<div class="location-about-image">
+			<h2 class="mobile-title">About {{ item.name }}</h2>
+			<div class="image-slider">
+				{% for image in item.cover_media %}
+					{% set img = "/storage/app/media" ~ image.image %}
+					<div class="img-wrapper"><img src="{{ img }}" /></div>
+				{% endfor %}
+			</div>
+		</div>
+		<div class="location-about-text">
+			<h2>About {{ item.name }}</h2>
+			<div class="location-summary">
+				{{ item.summary|raw }}
+			</div>
+		</div>
+		{% endfor %}
+	</div>
+</section>
+

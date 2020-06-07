@@ -1,0 +1,51 @@
+title = "Bike rental"
+url = "/bike-rental"
+layout = "default"
+meta_description = "The best bike rentals you could find in Europe - Belgrade, Vienna and Budapest!"
+is_hidden = 0
+robot_index = "index"
+robot_follow = "follow"
+
+[page]
+pageID = 3
+
+[uploadForm rentalform]
+rules[city] = "required"
+rules[name] = "required"
+rules[email] = "required"
+messages_success = "Your form was successfully submitted"
+messages_errors = "There were errors with your submission"
+mail_enabled = 1
+mail_subject = "New bike rental from Note!"
+mail_recipients[] = "belgrade@ibikebelgrade.com"
+mail_recipients[] = "belgrade@gowithnote.com"
+mail_resp_enabled = 1
+mail_resp_field = "email"
+mail_resp_from = "noreply@gowithnote.com"
+mail_resp_subject = "Thank you for contacting us!"
+redirect = "/success"
+inline_errors = "disabled"
+sanitize_data = "disabled"
+anonymize_ip = "disabled"
+recaptcha_theme = "light"
+recaptcha_type = "image"
+recaptcha_size = "normal"
+uploader_multi = 1
+placeholderText = "Click or drag files to upload"
+removeText = "Are you sure ?"
+maxSize = 5
+fileTypes[] = "svg"
+fileTypes[] = "png"
+fileTypes[] = "jpg"
+fileTypes[] = "docx"
+fileTypes[] = "avi"
+fileTypes[] = "ico"
+fileTypes[] = "mp4"
+
+[BikeRentalForm]
+
+[ToursList]
+slug = "{{ :slug }}"
+name = "{{ :name }}"
+==
+{% component 'page' %}

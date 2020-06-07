@@ -1,0 +1,11 @@
+plugin:
+    name: 'note.faq::lang.plugin.name'
+    description: 'note.faq::lang.plugin.description'
+    author: Note
+    icon: oc-icon-question
+    homepage: ''
+navigation:
+    main-menu-item:
+        label: FAQ
+        url: note/faq/faq
+        icon: icon-question

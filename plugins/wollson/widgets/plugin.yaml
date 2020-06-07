@@ -1,0 +1,20 @@
+plugin:
+    name: 'wollson.widgets::lang.plugin.name'
+    description: 'wollson.widgets::lang.plugin.description'
+    author: Wollson
+    icon: oc-icon-list
+    homepage: ''
+navigation:
+    main-menu-item:
+        label: Widgets
+        url: /wollson/widgets/widgets
+        icon: icon-list
+        sideMenu:
+            side-menu-item2:
+                label: Widgets
+                url: /wollson/widgets/widgets
+                icon: icon-list
+            side-menu-item:
+                label: Regions
+                url: /wollson/widgets/regions
+                icon: icon-location-arrow

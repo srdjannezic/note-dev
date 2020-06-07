@@ -1,0 +1,11 @@
+name: Regions
+modelClass: Wollson\Widgets\Models\Regions
+form: $/wollson/widgets/models/regions/fields.yaml
+defaultRedirect: wollson/widgets/regions
+create:
+    redirect: 'wollson/widgets/regions/update/:id'
+    redirectClose: wollson/widgets/regions
+update:
+    redirect: wollson/widgets/regions
+    redirectClose: wollson/widgets/regions
+preview: {  }

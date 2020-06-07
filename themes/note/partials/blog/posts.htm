@@ -1,0 +1,78 @@
+{% set posts = posts %} 
+{% set post_counter = 0 %}
+{% set mainPost = FeaturedPost %}
+{% set feautured =  '/storage/app/media/' ~ mainPost.featured %}
+<div class="blog-post-list">
+{% if this.page.id == 'blog' %}
+    <div class="post post-full">
+        <a href="/post/{{ mainPost.slug }}">
+        <div class="img-wrapper">
+            <img src="{{ url(feautured) }}" />
+           
+        </div>
+            <div class="container">
+                <div class="post-intro">
+                
+                    <p class="info">
+                        <strong>{{ mainPost.published_at|date('M, d Y') }}</strong>
+                    </p>
+                    <h2>{{ mainPost.title }}</h2>
+                </div>
+            </div>
+        </a>
+    </div>    
+{% endif %}
+    {% set more_class = '' %}
+    {% if this.page.id != 'home' %}
+        {% set more_class = ' container' %}
+    {% endif %}
+    <div class="more-posts{{ more_class }}">
+    {% for post in posts %} 
+        {% set feautured =  '/storage/app/media/' ~ post.featured %}
+        {% set post_size = "half" %}
+        {% if post_counter == 0 and not is_ajax %} 
+            {% set post_size = "full" %} 
+        {% endif %}
+
+        <div class="post post-half media-box">
+
+            <a href="{{ post.url }}">
+
+                <div class="img-wrapper">
+                    <img src="{{ url(feautured) }}" />
+                </div>
+                <div class="post-intro">
+                    <h2>{{ post.title }}</a></h2>
+                    <p class="info">
+                        {{ post.published_at|date('M, d Y') }}
+                    </p>
+                </div>
+            </a>
+        </div>
+  
+        {% set post_counter = post_counter + 1 %}
+    {% else %}
+        <div class="no-data">{{ noPostsMessage }}</div>
+    {% endfor %}
+</div>
+{% if this.page.id == 'blog' %}
+{% if posts.lastPage > 1 %}
+    <ul class="pagination">
+        {% if posts.currentPage > 1 %}
+            <li><a href="/blog?page={{ posts.currentPage-1 }}">&larr; Prev</a></li>
+        {% endif %}
+
+        {% for page in 1..posts.lastPage %}
+            <li class="{{ posts.currentPage == page ? 'active' : null }}">
+                <a href="/blog?page={{ page }}">{{ page }}</a>
+            </li>
+        {% endfor %}
+
+        {% if posts.lastPage > posts.currentPage %}
+            <li><a href="/blog?page={{ posts.currentPage+1 }}">Next &rarr;</a></li>
+        {% endif %}
+    </ul>
+{% endif %}
+{% endif %}
+  </div>
+

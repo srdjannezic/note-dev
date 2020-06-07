@@ -1,0 +1,15 @@
+title: Types
+modelClass: Note\Tours\Models\Types
+list: $/note/tours/models/types/columns.yaml
+recordUrl: 'note/tours/types/update/:id'
+noRecordsMessage: 'backend::lang.list.no_records'
+recordsPerPage: 20
+showSetup: true
+showCheckboxes: true
+defaultSort:
+    column: id
+    direction: asc
+toolbar:
+    buttons: list_toolbar
+    search:
+        prompt: 'backend::lang.list.search_prompt'

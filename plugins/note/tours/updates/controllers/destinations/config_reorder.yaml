@@ -1,0 +1,5 @@
+title: Destinations
+modelClass: Note\Tours\Models\Destinations
+nameFrom: id
+toolbar:
+    buttons: reorder_toolbar

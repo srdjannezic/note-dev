@@ -1,0 +1,58 @@
+fields:
+    name:
+        label: Name
+        span: auto
+        type: text
+    title:
+        label: Title
+        size: ''
+        span: left
+        type: richeditor
+    subtitle:
+        label: Subtitle
+        size: ''
+        span: left
+        type: richeditor
+    content:
+        label: Content
+        size: ''
+        span: full
+        type: richeditor
+    region:
+        label: Region
+        nameFrom: name
+        descriptionFrom: description
+        span: left
+        type: relation
+    blocks:
+        label: Blocks
+        prompt: 'Add new item'
+        span: full
+        type: repeater
+        form:
+            fields:
+                block_title:
+                    label: 'Block title'
+                    size: ''
+                    span: left
+                    type: richeditor
+                block_icon:
+                    label: 'Block Icon'
+                    mode: file
+                    span: left
+                    type: mediafinder
+                block_content:
+                    label: 'Block content'
+                    size: ''
+                    span: left
+                    type: richeditor
+                contact_info:
+                    label: 'Contact Info'
+                    size: ''
+                    span: left
+                    type: richeditor
+                contact_map:
+                    label: 'Contact Map'
+                    size: ''
+                    span: right
+                    type: richeditor

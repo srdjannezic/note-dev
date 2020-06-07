@@ -1,0 +1,107 @@
+title = "Contact us"
+url = "/contact-us"
+layout = "default"
+meta_description = "For general enquiries contact us at info@gowithnote.com"
+is_hidden = 0
+robot_index = "index"
+robot_follow = "follow"
+
+[widget offices]
+regionFilter = 10
+
+[uploadForm contactform]
+rules[name] = "required"
+rules[city] = "required"
+rules[lastname] = "required"
+rules[email] = "required"
+rules[comments] = "required"
+messages_success = "Your form was successfully submitted"
+messages_errors = "There were errors with your submission"
+mail_enabled = 1
+mail_subject = "Message from Note website."
+mail_recipients[] = "belgrade@gowithnote.com"
+mail_resp_enabled = 1
+mail_resp_field = "email"
+mail_resp_from = "noreply@gowithnote.com"
+mail_resp_subject = "Thank you for contacting us!"
+redirect = "/success"
+inline_errors = "disabled"
+sanitize_data = "disabled"
+anonymize_ip = "disabled"
+recaptcha_enabled = 0
+recaptcha_theme = "light"
+recaptcha_type = "image"
+recaptcha_size = "normal"
+uploader_multi = 1
+placeholderText = "Click or drag files to upload"
+removeText = "Are you sure ?"
+maxSize = 5
+fileTypes[] = "svg"
+fileTypes[] = "png"
+fileTypes[] = "jpg"
+fileTypes[] = "docx"
+fileTypes[] = "avi"
+fileTypes[] = "ico"
+fileTypes[] = "mp4"
+
+[ToursList]
+slug = "{{ :slug }}"
+name = "{{ :name }}"
+==
+<div class="contact__info">
+	<div class="container">
+		{% component 'offices' %}
+	</div>
+</div>
+<div class="contact__form">
+	<div class="container">
+		{% component 'contactform' %}
+	</div>
+</div>
+
+  <script>
+
+	var map1,
+	    map2,
+	    map3;
+	function initMap() {
+        map1 = new google.maps.Map(document.getElementById('map-1'), {
+          center: {lat: 44.814230, lng: 20.450678},
+          zoom: 14
+        });
+        map2 = new google.maps.Map(document.getElementById('map-2'), {
+          center: {lat: 47.488831, lng: 19.059063},
+          zoom: 14
+        });
+        map3 = new google.maps.Map(document.getElementById('map-3'), {
+          center: {lat: 48.207737, lng: 16.374943},
+          zoom: 14
+        });
+		var infowindow = new google.maps.InfoWindow();
+
+	    var marker, i, pin;
+
+
+	    	pin = {
+	    		url: '/themes/note/assets/images/map-pin.svg',
+	    		scaledSize: new google.maps.Size(34, 34)
+	    	}
+	      marker1 = new google.maps.Marker({
+	        position: new google.maps.LatLng(44.814230, 20.450678),
+	        map: map1,
+	        icon: pin,
+	      });
+	      marker2 = new google.maps.Marker({
+	        position: new google.maps.LatLng(47.488831, 19.059063),
+	        map: map2,
+	        icon: pin,
+	      });
+	       marker3 = new google.maps.Marker({
+	        position: new google.maps.LatLng(48.207737, 16.374943),
+	        map: map3,
+	        icon: pin,
+	      });
+
+
+    }
+</script>

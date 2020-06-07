@@ -1,0 +1,152 @@
+title = "Home"
+url = "/"
+layout = "default"
+meta_title = "Best tours and bike rentals in Belgrade, Vienna and Budapest"
+meta_description = "Note is a Belgrade based tourist company providing best tour and rentals, offering different ways of experiencing Belgrade, Budapest and Vienna."
+is_hidden = 0
+robot_index = "index"
+robot_follow = "follow"
+
+[slider]
+slide_show_id = 1
+
+[ToursList]
+ToursType = "nottrekking"
+slug = "{{ :slug }}"
+name = "{{ :name }}"
+
+[widget teaser]
+regionFilter = 1
+
+[widget about]
+regionFilter = 2
+
+[widget spotlight_title]
+regionFilter = 3
+
+[widget destinations_title]
+regionFilter = 4
+
+[DestinationsList]
+
+[blogPosts]
+pageNumber = "{{ :page }}"
+postsPerPage = 3
+noPostsMessage = "No posts found"
+sortOrder = "published_at desc"
+categoryPage = 404
+postPage = "post"
+
+[ToursList ToursList4]
+ToursType = "trekking"
+slug = "{{ :slug }}"
+name = "{{ :name }}"
+
+[widget social]
+regionFilter = 5
+==
+<section class="home-hero">
+    {% component 'slider' %}
+    <div class="note-search">
+        <form action="/tours" method="GET" class="main-search">
+            <input type="hidden" name="filter" />
+            <input type="hidden" name="destinations[]" id="hidden-dest" value="all" />
+            <input type="hidden" name="peoples[]" id="hidden-many" value="" />
+                <div class="input-wrapper">
+                    <i class="icon-destinations"></i>
+                   <!--  <input type="text" placeholder="Where to?"> -->
+                    <div class="drop-down-dest drop-where">
+                        <div class="selected">
+                            <a href="#"><span>Where to?</span></a>
+                        </div>
+                        <div class="options">
+                            <div class="list-wrapper">
+                                <ul>
+                                    <li class="dest-option"><a href="#" data-dest="Belgrade">Belgrade<span class="value">1</span></a></li>
+                                    <li class="dest-option"><a href="#" data-dest="Budapest">Budapest<span class="value">2</span></a></li>
+                                    <li class="dest-option"><a href="#" data-dest="Vienna">Vienna<span class="value">3</span></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="input-wrapper pick-date input-date-wrapper">
+
+                    <i class="icon-calendar"></i>
+                    <input type="text" id="when" readonly="true" name="date" placeholder="When?">
+                    <div id="note-datepicker" class="note-datepicker"></div>
+                </div>
+                <div class="input-wrapper pick-number">
+                    <i class="icon-dmc"></i>
+                    <!-- <input type="number" placeholder="How many?"> -->
+                     <div class="drop-down-dest drop-down-num">
+                        <div class="selected">
+                            <a href="#"><span>How many?</span></a>
+                        </div>
+                        <div class="options">
+                            <div class="list-wrapper">
+                                <ul>
+                                    {% for i in 0..30 %}
+                                        <li class="many-option"><a href="#" data-many="{{ i }}">{{ i }}<span class="value">{{ i }}</span></a></li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" class="note-search__btn"><span>Find tours</span></button>
+        </form>
+    </div>
+</section>
+<section class="home-spotlight">
+
+        {% component 'spotlight_title' %}
+
+
+        {% component 'ToursList' %}
+
+        <!-- {% component 'ToursList4' %} -->
+
+</section>
+<section class="home-teaser teaser">
+    {% component 'teaser' %}
+</section>
+
+<section class="home-social">
+    <div class="container-wide">
+        {% component 'social' %}
+        {% set posts = this.page.components['social'].getInstagram() %}
+        {% for post in posts.data %}
+            <div class="img-wrapper">
+                <a href="{{ post.link }}" target="blank">        
+                    <img src="{{ post.images.standard_resolution.url }}" />
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+</section>
+<section class="home-about">
+    <div class="container">
+        {% component 'about' %}
+    </div>
+</section>
+<section class="home-destinations">
+    <div class="container">
+        {% component 'destinations_title' %}
+        {% component 'DestinationsList' %}
+    </div>
+</section>
+<section class="home-blog">
+    <div class="section-subtitle">
+        <h4>We keep a blog!</h4>
+    </div>
+    <div class="section-title">
+        <h3>What we <strong>noticed</strong></h3>
+    </div>
+    <div class="container">
+        {% component 'blogPosts' %}
+        <div class="blogs-link">
+            <a href="/blog">see all posts</a>
+        </div>
+    </div>
+</section>

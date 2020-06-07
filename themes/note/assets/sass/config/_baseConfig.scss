@@ -1,0 +1,129 @@
+//-------------------------
+//--------------BASE CONFIG
+//-------------------------
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    -webkit-margin-before: 0;
+    -webkit-margin-after: 0;
+}
+
+body,
+html {
+    //height: 100%;
+}
+
+body {
+    font-family: $baseFont;
+    font-size: 16px;
+    overflow-x: hidden;
+}
+.siteWrapper,
+.main-content {
+    height: 100%;
+}
+
+.site-wrapper {
+    margin-right: 70px;
+    @include breakpoint(desktop--small) {
+        margin-right: 0;
+    }
+    &.overlay {
+        &:after {
+            content: "";
+            position: fixed;
+            width: 100%;
+            display: block;
+            height: 100%;
+            top: 0;
+            z-index: 99;
+            left: 0;
+            background: rgba(0,0,0,0.5);
+        }
+    }
+}
+
+main {
+    overflow: hidden;
+}
+
+.siteWrapper {
+    @extend %clearfix;
+    overflow-x: hidden;
+}
+.container {
+	max-width: 1200px;
+	width: 92%;
+	margin: 0 auto;
+    padding: 0;
+}
+
+h4, .h4, h5, .h5, h6, .h6 {
+    margin: 0;
+}
+
+p:empty {
+    display: none;
+}
+
+ul {
+    margin-bottom: 0;
+}
+
+div#cookies-notice {
+    display: none;
+}
+
+h1,h2,h3,h4 {
+    font-weight: normal;
+}
+
+a:hover,
+a:focus {
+    text-decoration: none;
+    outline: none;
+}
+a {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.img-wrapper {
+    img {
+        width: 100%;
+    }
+}
+
+input {
+    border: none;
+    outline: none;
+}
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+     /* IE10+ CSS styles go here */
+    
+}
+
+@supports (-ms-ime-align: auto) {
+
+}
+
+@supports (-ms-accelerator:true) {
+  /* IE Edge 12+ CSS styles go here */ 
+   
+}
+
+*, *:focus {
+    -webkit-tap-highlight-color: transparent;
+} 
+
+
+
+
+
+

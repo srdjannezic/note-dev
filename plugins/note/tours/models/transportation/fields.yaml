@@ -1,0 +1,15 @@
+fields:
+    name:
+        label: Name
+        span: auto
+        type: text
+    icon:
+        label: Icon
+        options:
+            icon-transportation: Default
+            icon-ebike: E-bike
+            icon-bike-1: Bike
+            icon-foot: Foot
+            icon-car: Car
+        span: auto
+        type: balloon-selector

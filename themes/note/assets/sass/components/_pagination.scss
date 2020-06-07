@@ -1,0 +1,22 @@
+//-------------------------
+//----------   PAGINATION
+//-------------------------
+
+.pagination {
+	padding-bottom: 8rem;
+	text-align: center;
+	li {
+		display: inline-block;
+		margin: 0 16px;
+		&.active {
+			a {
+				font-family: $baseFont-bold;
+			}
+		}
+		a {
+			font-family: $baseFont-med;
+			font-size: 22px;
+			color: $c-mainPurple;
+		}
+	}
+}

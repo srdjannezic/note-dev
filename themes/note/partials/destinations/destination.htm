@@ -1,0 +1,47 @@
+{% set path = '/storage/app/media/' %}
+
+<div class="page-title">
+	<div class="title-wrapper">
+		<h3 class="section-subtitle">{{ destination.subtitle | raw }}</h3>
+		<h2 class="section-title"><strong>{{ destination.name | raw }}</strong></h2>
+	</div>
+</div>
+<section class="destination-hero">
+	<div class="image-slider slick-init">
+		{% for image in destination.cover_media %}
+			{% set imgsrc = path ~ image.image %}
+			<div class="img-wrapper"><img src="{{ url(imgsrc) }}" /></div>
+		{% endfor %}
+	</div>
+</section>
+
+{% for section in destination.content %}
+	{% set img = path ~ section.section_image %}
+	<article class="dest-media-box">
+		<div class="container">
+			<h3>{{ section.section_title | raw }}</h3>
+			<div class="content-box">
+				{% if section.section_image and 
+					(section.image_alignment == 'left' or section.image_alignment == 'right') %}
+					{% if section.section_subtitle %}
+						<div class="section-subtitle">
+							{{ section.section_subtitle|raw }}
+						</div>
+					{% endif %}
+					<div class="text-img-{{ section.image_alignment }}">
+						<img src="{{ url(img) }}" class="img-{{ section.image_alignment }}" />
+						{{ section.section_content |raw }}
+					</div>
+				{% else %}
+					{{ section.section_content |raw }}
+					{% if section.section_image %}
+						<img src="{{ url(img) }}" />
+					{% endif %}
+				{% endif %}
+				
+				
+			</div>
+		</div>
+	</article>
+{% endfor %}
+

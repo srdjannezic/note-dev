@@ -1,0 +1,24 @@
+plugin:
+    name: 'peterhegman.slickslider::lang.plugin.name'
+    description: 'peterhegman.slickslider::lang.plugin.description'
+    author: 'Peter Hegman'
+    icon: oc-icon-image
+    homepage: 'https://github.com/phegman/October-CMS-Slick-Slider'
+permissions:
+    peterhegman.slickslider.manage_slide_shows:
+        tab: 'peterhegman.slickslider::lang.plugin.name'
+        label: 'peterhegman.slickslider::lang.slickslider.manage_slide_shows'
+    peterhegman.slickslider.manage_slides:
+        tab: 'peterhegman.slickslider::lang.plugin.name'
+        label: 'peterhegman.slickslider::lang.slickslider.manage_slides'
+    peterhegman.slickslider.create_slide_shows:
+        tab: 'peterhegman.slickslider::lang.plugin.name'
+        label: 'peterhegman.slickslider::lang.slickslider.create_slide_shows_label'
+navigation:
+    slide_shows:
+        label: 'peterhegman.slickslider::lang.slickslider.slide_shows'
+        url: peterhegman/slickslider/slideshows
+        icon: icon-image
+        permissions:
+            - peterhegman.slickslider.manage_slide_shows
+            - peterhegman.slickslider.manage_slides

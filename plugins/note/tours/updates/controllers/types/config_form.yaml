@@ -1,0 +1,11 @@
+name: Types
+modelClass: Note\Tours\Models\Types
+form: $/note/tours/models/types/fields.yaml
+defaultRedirect: note/tours/types
+create:
+    redirect: 'note/tours/types/update/:id'
+    redirectClose: note/tours/types
+update:
+    redirect: note/tours/types
+    redirectClose: note/tours/types
+preview: {  }

@@ -1,0 +1,32 @@
+plugin:
+    name: 'note.tours::lang.plugin.name'
+    description: 'note.tours::lang.plugin.description'
+    author: Note
+    icon: oc-icon-train
+    homepage: ''
+navigation:
+    main-menu-item:
+        label: Tours
+        url: note/tours/tours
+        icon: icon-train
+        sideMenu:
+            side-menu-item4:
+                label: Tours
+                url: note/tours/tours
+                icon: icon-train
+            side-menu-item:
+                label: Destinations
+                url: note/tours/destinations/
+                icon: icon-location-arrow
+            side-menu-item2:
+                label: Types
+                url: note/tours/types/
+                icon: icon-rocket
+            side-menu-item3:
+                label: Styles
+                url: note/tours/styles/
+                icon: icon-steam
+            transportation:
+                label: Transportation
+                url: note/tours/transportation
+                icon: icon-car

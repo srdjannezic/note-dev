@@ -1,0 +1,39 @@
+title = "About Us"
+url = "/about-us"
+layout = "default"
+meta_description = "We are Note"
+is_hidden = 0
+robot_index = "index"
+robot_follow = "follow"
+
+[page]
+pageID = 1
+
+[PartnersList]
+
+[widget]
+regionFilter = 8
+
+[FaqList]
+
+[ToursList]
+ToursType = "list"
+slug = "{{ :slug }}"
+name = "{{ :name }}"
+==
+{% component 'page' %}
+<section class="partners">
+	<div class="container">
+		<h2 class="section-title">Our <strong>Partners</strong></h2>
+		{% component 'PartnersList' %}
+	</div>
+</section>
+<section class="faq">
+	<div class="container">
+		<h2 class="section-title"><strong>FAQ</strong></h2>
+		{% component 'FaqList' %}
+	</div>
+</section>
+<section class="career-teaser">
+	{% component 'widget' %}
+</section>

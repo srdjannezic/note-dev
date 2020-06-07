@@ -1,0 +1,10 @@
+fields:
+    name:
+        label: Name
+        span: auto
+        type: text
+    icon:
+        label: Icon
+        mode: file
+        span: left
+        type: mediafinder

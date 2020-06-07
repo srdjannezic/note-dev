@@ -1,0 +1,194 @@
+//-------------------------
+//----------- CONTACT
+//-------------------------
+
+.pg-contact-us {
+	padding-top: 10rem;
+	@include breakpoint(mobile) {
+		padding-top: 6rem;
+	}
+	.contact__info .container {
+		padding: 0 12rem;
+		@include breakpoint(desktop--small) {
+			padding: 0 6rem;
+		}
+		@include breakpoint(tablet--landscape) {
+			padding: 0;
+		}
+
+	}
+	.media-box {
+		width: 100%;
+		float: none;
+		@extend %clearfix;
+		h2 {
+			display: none;
+		}
+	}
+	.tour-map {
+		width: 100%;
+		float: right;
+	}
+	iframe#gmap_canvas {
+		height: 300px;
+	}
+}
+
+.contact__info {
+	padding-bottom: 8rem;
+	.box-wrapper {
+		@include breakpoint(tablet--landscape) {
+			width: 690px;
+			margin: 0 auto;
+		}
+		@include breakpoint(tablet) {
+			width: 100%;
+		}
+	}
+	.map,
+	.info {
+		float: left;
+		width: 50%;
+		@include breakpoint(mobile) {
+			width: 100%;
+			float: none;
+		}
+	}
+	.info {
+		padding-right: 30px;
+    	text-align: left;
+		@include breakpoint(mobile) {
+			text-align: center;
+			margin-bottom: 5rem;
+			padding-right: 0;
+		}
+		strong {
+			font-family: $baseFont-bold;
+			color: #585858;
+		}
+		a {
+			color: #585858;
+		}
+		p,
+		address {
+			padding-right: 0;
+			margin-bottom: 10px;
+			font-size: 22px;
+			color: #585858;
+			@include breakpoint(desktop--small) {
+				margin-bottom: 1rem;
+				font-size: 18px;
+			}
+			@include breakpoint(tablet) {
+				font-size: 2.4rem;
+			}
+			&:last-child {
+				font-family: $baseFont-med;
+			}
+		}
+	}
+	.media-box {
+		margin-bottom: 50px;
+		border-bottom: solid 1px #dadada;
+    	padding-bottom: 50px;
+    	&:last-of-type {
+    		border-bottom: none;
+    		padding-bottom: 0px;
+    	}
+	}
+}
+
+.contact__form {
+	padding: 80px 0;
+	background-color: $c-bgGrey;
+	@include breakpoint(mobile) {
+		padding: 8rem 0;
+	}
+	.container {
+		@extend .wrapUp;
+	}
+	form {
+		width: 690px;
+		margin: 0 auto;
+		@include breakpoint(tablet) {
+			width: 100%;
+		}
+	}
+	.input-wrapper {
+		width: 100%;
+		height: 50px;
+		margin-bottom: 30px;
+		@include breakpoint(mobile) {
+			height: 44px;
+			margin-bottom: 3.4rem;
+		}
+		input {
+			width: 100%;
+			height: 100%;
+			padding: 0 15px;
+			font-family: $baseFont;
+		}
+		&.select-box {
+			position: relative;
+			width: 350px;
+			@include breakpoint(mobile--l) {
+				width: 100%;
+			}
+			select {
+				padding-left: 15px;
+				font-family: $baseFont;
+				width: 100%;
+				height: 100%;
+				border: none;
+				outline: none;
+				 -webkit-appearance: none;
+    			appearance: none;
+			}
+			&:after {
+				display: block;
+				content: "";
+				@include absolute(center-vertical);
+				right: 15px;
+			    width: 23px;
+    			height: 17px;
+				background-image: url('../images/arrow-down.png');
+				background-repeat: no-repeat;
+				background-size: 100%;
+				z-index: 2;
+			}
+		}
+	}
+	.textarea-wrapper {
+		width: 100%;
+		textarea {
+			width: 100%;
+			border: none;
+			resize: none;
+			padding: 20px 15px;
+			font-family: $baseFont;
+			outline: none;
+		}
+	} 
+	.btn-wrapper {
+		float: right;
+		margin-top: 30px;
+		padding: 14px 56px 20px;
+		cursor: pointer;
+		@include breakpoint(mobile) {
+			width: 100%;
+			margin-top: 3.4rem;
+			padding: 11px 0 12px;
+		}
+		input {
+			width: 100%;
+			height: 100%;
+			font-size: 22px;
+			background: $c-mainGreen;
+			font-family: $baseFont-med;
+			color: $c-white;
+			@include breakpoint(mobile) {
+				font-size: 16px;
+			}
+		}
+	}
+}

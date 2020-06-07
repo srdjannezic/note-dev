@@ -1,0 +1,17 @@
+1.0.1:
+    - 'Initialize plugin.'
+1.0.2:
+    - 'Created table wollson_widgets_'
+    - builder_table_create_wollson_widgets_.php
+1.0.3:
+    - 'Created table wollson_widgets_regions'
+    - builder_table_create_wollson_widgets_regions.php
+1.0.4:
+    - 'Updated table wollson_widgets_regions'
+    - builder_table_update_wollson_widgets_regions.php
+1.0.5:
+    - 'Updated table wollson_widgets_'
+    - builder_table_update_wollson_widgets_.php
+1.0.6:
+    - 'Updated table wollson_widgets_'
+    - builder_table_update_wollson_widgets__2.php

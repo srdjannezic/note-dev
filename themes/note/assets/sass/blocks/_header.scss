@@ -1,0 +1,272 @@
+//-------------------------
+//----------- HEADER
+//-------------------------
+body {
+	&.with-wideSearch {
+		.logo,
+		.ham-menu-btn {
+			opacity: 0;
+			z-index: -1;
+			transition: all ease-in-out 0.2s 0s;
+		}
+	}
+}
+
+.close-search {
+	display: none;
+	z-index: 6;
+}
+.header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	padding: 15px 20px 20px;
+	background-color: $c-white;
+	z-index: 4;
+	transition: all ease-in-out 0.2s;
+	-webkit-box-shadow: -4px 3px 4px 0px rgba(0, 0, 0, 0.1);
+	-moz-box-shadow: -4px 3px 4px 0px rgba(0, 0, 0, 0.1);
+	box-shadow: -4px 3px 4px 0px rgba(0, 0, 0, 0.1);
+	@include breakpoint(mobile) {
+		padding: 2.5rem 2.4rem 2.4rem 1.9rem;
+	}
+	
+	.logo {
+		width: 80px;
+		@include breakpoint(tablet) {
+			width: 80px;
+		}
+		@include breakpoint(mobile) {
+			width: 12rem;
+		}
+		.icon-note-logo {
+			font-size: 30px;
+			@include breakpoint(tablet) {
+				font-size: 40px;
+			}
+			@include breakpoint(mobile) {
+				font-size: 3rem;
+			}
+		}
+
+	}
+	.search {
+		@include absolute(center);
+		width: 500px;
+		height: 35px;
+		transition: all ease-in-out 0.3s;
+		@include breakpoint(desktop--small) {
+			width: 50%;
+			left: 55%;
+		}
+
+		@include breakpoint(mobile) {
+			height: 36px;
+			background-color: $c-white;
+		}
+		@include breakpoint(mobile--s) {
+			height: 30px;
+			left: 55%;
+			width: 30rem;
+
+		}
+		form,.search-wrapper {
+			width: 100%;
+			height: 100%;
+		}
+		.input-wrapper {
+			float: right;
+			width: 435px;
+			height: 100%;
+			border: 1px solid #bfbfbf;
+			border-left: none;
+			@include breakpoint(desktop--small) {
+				width: 87%;
+			}
+			@include breakpoint(mobile--l) {
+				width: 80%;
+			}
+			input {
+				width: 100%;
+				height: 100%;
+				padding: 0 17px 5px 17px;
+				font-family: $baseFont-light;
+				font-size: 14px;
+				@include breakpoint(mobile--s) {
+					font-size: 12px;
+					padding-bottom: 0px;
+					padding-left: 10px;
+				}
+			}
+			&>div {
+				height: 100%;
+			}
+			::placeholder {
+				color: #616161;
+			}
+		}
+		&.wideSearch {
+			@include absolute(center);
+			width: 92%;
+			.close-search {
+				display: block;
+				position: absolute;
+				top: 1px;
+				right: 10px;
+				font-size: 20px;
+				line-height: 1.4;
+				z-index: 9;
+			}
+			.input-wrapper {
+				//border: none;
+			}
+		}
+	}
+}
+
+.resultsData {
+	position: absolute;
+	top: 100%;
+    left: 0;
+	width: 500px; 
+	background: $c-white;
+	border: 1px solid #bfbfbf;
+	border-top: none;
+	display: none;
+	@include breakpoint(desktop--small) {
+		width: 100%;
+	}
+	@include breakpoint(mobile) {
+		display: none;
+		width: 100vw;
+		min-height: 100vh;
+		left: -2.4rem;
+		border: none;
+	}
+	&>li {
+		padding-left: 65px;
+		cursor: initial!important;
+		@include breakpoint(desktop--small) {
+			padding-left: 14%;
+		}
+	}
+	span {
+		display: block;
+		position: relative;
+		margin-bottom: 24px;
+	}
+	li {
+		position: relative;
+		margin: 20px 0;
+		cursor: pointer;
+		font-family: $baseFont-med;
+		font-size: 18px;
+		color: #77787b;
+		@include breakpoint(mobile) {
+			font-size: 14px;
+		}
+		i {
+			@include absolute(center-vertical);
+			left: -50px;
+			font-size: 35px;
+			color: $c-lightPurple;
+			@include breakpoint(desktop--small) {
+				font-size: 4rem;
+				left: -5.6rem;
+			}
+		}
+	}
+	.result-tours,
+	.result-places {
+		display: none;
+		color: #000;
+		font-size: 14px;
+		ul {
+			// padding: 20px 0;
+			margin-bottom: 40px;
+		}
+	}
+}
+
+
+
+.header-holder {
+	width: 100%;
+	height: 57px;
+	@include breakpoint(mobile) {
+		height: 7.4rem;
+	}
+}
+
+.search-submit {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 65px;
+	height: 100%;
+	background-color: $c-mainGreen;
+	border: 1px solid $c-mainGreen;
+	cursor: pointer;
+	@include breakpoint(desktop--small) {
+		width: 14%;
+	}
+	@include breakpoint(mobile--l) {
+		width: 20%;
+	}
+	i {
+		@include absolute(center);
+		font-size: 24px;
+		color: $c-white;
+		@include breakpoint(mobile) {
+			font-size: 18px;
+		}
+	}
+}
+
+.logo-in-menu {
+	opacity: 0;
+	position: fixed;
+	top: 3.2rem;
+	left: 2.6rem;
+	z-index: 55;
+	width: 30%;
+	transition: all ease-in-out 0.1s 0.1s;
+	&.showUp {
+		opacity: 1;
+		transition: all ease-in-out 0.6s 0.6s;
+	}
+	a {
+		color: $c-white;
+		font-family: $baseFont-bold;
+		font-size: 40px;
+		line-height: 0.5;
+		letter-spacing: 0.5px;
+		@include breakpoint(mobile) {
+			font-size: 5.2rem;
+		}
+		i {
+			position: relative;
+			top: -10px;
+			font-size: 24px;
+			color: $c-mainYellow;
+			@include breakpoint(mobile) {
+				font-size: 2.6rem;
+
+			}
+		}
+	}
+	.icon-note-logo {
+		@include breakpoint(mobile) {
+			font-size: 3.2rem;
+		}
+		.path1,
+		.path2,
+		.path3,
+		.path4 {
+			&:before {
+				color: $c-white;
+			}
+		}
+	}
+}

@@ -1,0 +1,18 @@
+//---------------------------------
+//----------INPUT PLACEHOLDER MIXIN
+//---------------------------------
+
+/* EXAMPLE
+*    @include linear-gradient (to bottom, #222222 0%, #0f0f0f 100%);
+*    Default is 'to bottom, #222222 0%, #0f0f0f 100%'
+*/
+
+
+// @mixin background linear-gradient $params: (to bottom, #222222 0%, #0f0f0f 100%)) {
+//     -webkit-linear-gradient: $params;
+//      -khtml-linear-gradient: $params;
+//        -moz-linear-gradient: $params;
+//         -ms-linear-gradient: $params;
+//          -o-linear-gradient: $params;
+//             linear-gradient: $params;
+// }

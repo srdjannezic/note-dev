@@ -1,0 +1,100 @@
+title = "Search Result"
+url = "/search-result"
+layout = "default"
+is_hidden = 0
+robot_index = "index"
+robot_follow = "follow"
+
+[ToursList]
+ToursType = "search"
+slug = "{{ :slug }}"
+name = "{{ :name }}"
+==
+<div class="pg-tours">
+<div class="filter-fixed-header">
+	<div class="container">
+		<div class="filter__btn">
+			<span class="open-word"><b>Filters</b> <i class="icon-filter"></i></span></span>
+		</div>
+		<span class="show-results"><em>Showing</em> <b class="res-count">{{ this.page.components['ToursList'].tours.total() }}</b> results</span>
+		<div class="select-box-wrapper">
+			<span>Sort by:</span>
+			<div class="select-box sort-box">
+	            <select>
+	                <option value="popular">Most popular</option>
+	                <option value="duration">Duration</option>
+	                <option value="price">Price</option>
+	                <option value="abc">Alphabet</option>
+	            </select>
+            </div>
+        </div>
+	</div>
+</div>
+<form class="form-filter">
+<div class="container">
+	<div class="note-filter showFilter">
+       
+		<span class="filter-word"><b>Hide filters</b> <i>&#10005;</i></span></span>
+		<div class="boxes-wrapper">
+			<div class="filter__box">
+				<h4 class="filter__box__title"><i class="icon-destinations"></i>Where to?</h4>
+				<ul class="filter__box__list filter-dest">
+					{% for dest in this.page.components['ToursList'].allDestinations %}
+						<li class="filter-tab {{ dest.slug }}-tab" data-item="{{ dest.name }}">{{ dest.name }}</li>
+					{% endfor %}
+				</ul>
+			</div>
+			<div class="filter__box">
+				<h4 class="filter__box__title"><i class="icon-time"></i>Tour duration</h4>
+				<ul class="filter__box__list filter-dur">
+					<li class="filter-tab min-hour" data-item="1-3" data-val="h">1-3 h</li>
+					<li class="filter-tab mid-hour" data-item="4-8" data-val="h">4-8 h</li>
+					<li class="filter-tab max-hour" data-item="1" data-val="d">1d <</li>
+				</ul>
+			</div>
+			<div class="filter__box">
+				<h4 class="filter__box__title"><i class="icon-transport"></i>Transportation</h4>
+				<ul class="filter__box__list filter-trans">
+					{% for trans in this.page.components['ToursList'].allTransportations %}
+						<li class="filter-tab foot-tab" data-item="{{ trans.name }}">{{ trans.name }}</li>
+					{% endfor %}
+				</ul>
+			</div>
+			<div class="filter__box">
+				<h4 class="filter__box__title"><i class="icon-tour-type"></i>Tour type</h4>
+				<ul class="filter__box__list filter-type">
+					{% for types in this.page.components['ToursList'].allTypes %}
+					<li class="filter-tab {{ types.slug }}-tab" data-item="{{ types.name }}">{{ types.name }}</li>
+					{% endfor %}
+				</ul>
+			</div>
+			<div class="filter__box inline-boxes">
+				<h4 class="filter__box__title"><i class="icon-people"></i>No. of people</h4>
+				<ul class="filter__box__list filter-numpp">
+					<li class="filter-tab toThree" data-item="1-3">1-3</li>
+					<li class="filter-tab toTen" data-item="3-10">3-10</li>
+					<li class="filter-tab tenPlus" data-item="10+">10+</li>
+				</ul>
+			</div>
+			<div class="filter__box">
+				<h4 class="filter__box__title"><i class="icon-price"></i>Price range (in €)</h4>
+				<input type="text" class="js-range-slider" data-max="{{ this.page.components['ToursList'].maxPrice }}" name="my_range" value="" />
+			</div>
+			<div class="filter__box">
+				<h4 class="filter__box__title"><i class="icon-style"></i>Style</h4>
+				{% for styles in this.page.components['ToursList'].allStyles %}
+					<div class="check-wrapper">
+		                <input type="checkbox" name="styles" class="styles" value="{{ styles.name }}" id="{{ styles.slug }}" data-item="{{ styles.name }}"><label for="{{ styles.slug }}">{{ styles.name }}</label>
+		                <span class="checkmark">&nbsp;</span>
+		            </div>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+</form>
+	{% component 'ToursList' %}
+	 <div class="load-more-holder">
+        <a href="?page=2" class="load-more"><span>Load more</span></a>
+    </div>
+</div>
+</div>

@@ -1,0 +1,11 @@
+plugin:
+    name: 'wollson.pages::lang.plugin.name'
+    description: 'wollson.pages::lang.plugin.description'
+    author: Wollson
+    icon: oc-icon-columns
+    homepage: ''
+navigation:
+    main-menu-item:
+        label: Pages
+        url: wollson/pages/pages
+        icon: icon-columns

@@ -1,0 +1,4 @@
+title: Styles
+modelClass: Note\Tours\Models\Styles
+toolbar:
+    buttons: reorder_toolbar

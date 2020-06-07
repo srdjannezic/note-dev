@@ -1,0 +1,8 @@
+<div class="faq-list accordion-init">
+{% for item in faq %}
+	<div class="acc-row">
+		<div class="acc-header">{{ item.question|raw }}</div>
+		<div class="acc-content">{{ item.answer|raw }}</div>
+	</div>
+{% endfor %}
+</div>

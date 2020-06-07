@@ -1,0 +1,23 @@
+title = "Destination"
+url = "/destination/:slug"
+layout = "default"
+is_hidden = 0
+
+[Destination]
+slug = "{{ :slug }}"
+
+[ToursList]
+==
+{% component 'Destination' %}
+<div class="tours">
+	<div class="container">
+	    <h4 class="section-subtitle">Maybe we can offer</h4>
+	    <h3 class="section-title"><strong>Similar tours</strong></h3>
+	    <div class="tour-slider">
+	    	{% component 'ToursList' %}
+	    </div>
+	    <div class="load-more-holder">
+	    	<a class="load-more-btn" href="/tours">see all tours</a>
+		</div>
+    </div>
+</div>

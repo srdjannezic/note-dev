@@ -1,0 +1,42 @@
+title = "Destinations"
+url = "/destinations"
+layout = "default"
+meta_description = "Best tours and rentals in Belgrade, Vienna and Budapest"
+is_hidden = 0
+robot_index = "index"
+robot_follow = "follow"
+
+[DestinationsList]
+
+[ToursList]
+slug = "{{ :slug }}"
+name = "{{ :name }}"
+==
+<div class="section-subtitle">
+    <h4>All about our</h4>
+</div>
+<div class="section-title">
+    <h3><strong>Destinations</strong></h3>
+</div>
+
+<section class="destinations">
+	<div class="container">
+    	{% component 'DestinationsList' %}
+    </div>
+</section>
+<section class="spotlight">
+	<div class="section-subtitle">
+	    <h4>Most popular tours</h4>
+	</div>
+	<div class="section-title">
+	    <h3><strong>Destinations</strong></h3>
+	</div>
+    <div class="container">
+        <div class="tour-slider">
+            {% component 'ToursList' %}
+        </div>
+       <div class="load-more-holder">
+            <a href="/blog" class="load-more">see all blogs</a>
+        </div>
+    </div>
+</section>

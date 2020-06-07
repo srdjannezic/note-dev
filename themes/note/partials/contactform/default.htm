@@ -1,0 +1,35 @@
+{{ form_ajax(__SELF__ ~ '::onFormSubmit') }}
+    
+    <div class="input-wrapper select-box">
+        <select name="city">
+            <option value="">Pick a City</option>
+            {% for dest in destinations %}
+                <option value="{{ dest.name }}">{{ dest.name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <div class="input-wrapper">
+        <input type="text" id="name" name="name" placeholder="* First Name">
+    </div>
+
+    <div class="input-wrapper">
+        <input type="text" id="lastname" name="lastname" placeholder="* Last Name">
+    </div>
+
+    <div class="input-wrapper">
+        <input type="text" id="email" name="email" placeholder="* E-mail" >
+    </div> 
+
+    <div class="form-block">
+        <div class="textarea-wrapper">
+            <textarea id="comments" name="comments" rows="8" cols="80" placeholder="*Message"></textarea>
+        </div>
+    </div>
+  
+        {% partial '@recaptcha' %}
+    <div id="{{ __SELF__ }}_forms_flash"></div>
+    <div class="btn-wrapper btn-green">
+    {{ form_submit() }}
+    </div>
+{{ form_close() }}

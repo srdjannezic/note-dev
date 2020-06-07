@@ -1,0 +1,6 @@
+1.0.1:
+    - 'Initialize plugin.'
+1.0.2:
+    - 'Moved menu to System category.'
+1.0.3:
+    - 'Removed menuitem for users who have no rights.'

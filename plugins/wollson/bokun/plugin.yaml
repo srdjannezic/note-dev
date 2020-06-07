@@ -1,0 +1,6 @@
+plugin:
+    name: 'wollson.bokun::lang.plugin.name'
+    description: 'wollson.bokun::lang.plugin.description'
+    author: Wollson
+    icon: oc-icon-adjust
+    homepage: ''

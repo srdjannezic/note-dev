@@ -1,0 +1,355 @@
+//-------------------------
+//----------- NOTE SEARCH
+//-------------------------
+
+.note-search {
+	@include absolute(center-horizontal);
+	top: 60%;
+	width: 800px;
+	background: #fff;
+	@extend %clearfix;
+	@include breakpoint(tablet) {
+		width: 60%;
+	}
+	@include breakpoint(mobile--s) {
+		width: 90%;
+	}
+	z-index: 3;
+	form {
+		width: 100%;
+		height: 100%;
+	}
+	thead {
+		margin-bottom: 10px;
+	}
+	.ui-datepicker-calendar td, .ui-datepicker-calendar th {
+		text-align: center;
+		@include breakpoint(mobile) {
+			// padding: 8px;
+		}
+	}
+	.note-datepicker {
+		padding: 18px;
+		@include breakpoint(mobile) {
+			width: 200%;
+			
+		}
+	}
+	.ui-datepicker-prev.ui-corner-all {
+		left: 18px;
+	}
+	.ui-datepicker-next.ui-corner-all {
+		right: 18px;
+	}
+	.ui-datepicker-calendar {
+		@include breakpoint(mobile) {
+			font-size: 13px;
+		}
+		
+	}
+	.ui-datepicker-title {
+		@include breakpoint(mobile) {
+			font-size: 13px;
+		}
+	}
+	.input-wrapper {
+		position: relative;
+		float: left;
+		height: 65px;
+		width: 25%;
+		@include breakpoint(tablet) {
+			width: 50%;
+			height: 46px;
+		}
+		input,
+		select,
+		.drop-down-dest {
+			width: 100%;
+			height: 100%;
+			padding-left: 51px;
+			font-family: $baseFont;
+			font-size: 14px;
+			color: #808285;
+			background: #fff;
+			outline: none;
+			border: none;
+			-webkit-appearance: none;
+			-moz-appearance:    none;
+			appearance:         none;
+			option {
+				padding-left: 20px;
+			}
+			@include breakpoint(mobile) {
+				padding-left: 40px;
+			}
+		}
+		input {
+			position: relative;
+			background: transparent;
+			z-index: 4;
+		}
+		.drop-down-dest {
+			padding-left: 0;
+			a {
+				padding-left: 51px;
+			}
+		}
+		&.pick-number {
+			width: 22.5%;
+			@include breakpoint(tablet) {
+				width: 50%;
+			}
+			.drop-down-num .options {
+				//height: 180px;
+			}
+		}
+		&:first-of-type {
+			width: 35%;
+			@include breakpoint(tablet) {
+				display: block;
+				float: none;
+				width: 100%;
+				&:after {
+					display: block;
+					content: "";
+					@include absolute(center-horizontal);
+					top: auto;
+					bottom: 0;
+					right: 0;
+					width: 90%;
+					height: 1px;
+					background-color: #808285;
+				}
+			}
+		}
+		&:last-of-type {
+			&:after {
+				display: none;
+			}
+		}
+		&:after {
+			display: block;
+			content: "";
+			@include absolute(center-vertical);
+			right: 0;
+			width: 2px;
+			height: 55%;
+			background-color: #808285;
+			@include breakpoint(tablet) {
+				width: 1px;
+			}
+		}
+		i {
+			@include absolute(center-vertical);
+			left: 10px;
+			font-size: 30px;
+			width: 30px;
+			@include breakpoint(mobile) {
+				font-size: 24px;
+				width: 24px;
+			}
+			&:before {
+				color: #472567;
+			}
+		}
+	}
+	&__btn {
+		position: absolute;
+		right: 0;
+		top: 0;min-width: 140px;
+		border: none;
+		background: $c-mainGreen;
+		height: 65px;
+		color: $c-white;
+		padding: 0 35px;
+		font-family: $baseFont-bold;
+		font-size: 14px;
+		cursor: pointer;
+		outline: none;
+		transition: all ease 0.3s;
+		@include breakpoint(tablet) {
+			@include absolute(center-horizontal);
+			width: 50%;
+			height: 46px;
+			top: auto;
+			bottom: -76px;
+		}
+		span {
+			@include absolute(center);
+			top: 48%;
+			@include breakpoint(mobile) {
+				top: 50%;
+			}
+		}
+		&:hover,
+		&:focus,
+		&:active {
+			    background-color: #018982;
+		}
+	}
+}
+
+
+.drop-down-dest {
+	position:relative;
+	background: transparent!important;
+}
+
+.drop-down-dest .selected {
+	width: 100%;
+	height: 100%;
+}
+
+.drop-down-dest .selected a {
+	display:block; 
+	width: 100%;
+	height: 100%;
+	color: #808285;
+	text-decoration:none;
+}
+
+.drop-down-dest .selected a span{
+	@include absolute(center-vertical);
+	cursor:pointer; 
+	display:block; 
+}
+
+.drop-down-dest .option{
+	position:relative; 
+}
+
+.drop-down-dest .list-wrapper {
+	display: none;
+}
+
+.drop-down-dest .options ul {
+	list-style:none; 
+	padding:0px 0px; 
+	position:absolute; 
+	left: 0; 
+	top: 0px; 
+	width:100%;
+	background-color: $c-white; 
+	border: 1px solid #bfbfbf;
+	@include breakpoint(tablet) {
+		top: 0px;
+		z-index: 5;
+		// box-shadow: -4px 3px 4px 0 rgba(0,0,0,.1);
+	}
+}
+
+.drop-down-dest .selected span.value, .drop-down-dest .options span.value{
+  display: none;
+}
+
+.drop-down-dest .options ul li a {
+	padding: 14px 0;
+	padding-left: 51px;
+	display:block;
+	color: #77787b;
+	text-decoration:none;
+	@include breakpoint(mobile) {
+		padding-left: 42px;
+	}
+}
+
+.note-search .pick-date.input-wrapper input {
+	@include breakpoint(mobile) {
+		padding-left: 51px;
+	} 
+}
+
+.drop-down-num .options ul li a {
+	padding: 10px 0;
+	padding-left: 20px;
+	@include breakpoint(mobile) {
+		padding: 15px 0 14px;
+		padding-left: 0!important;
+		font-size: 20px;
+		text-align: center;
+   		border-bottom: 1px solid #ecebeb;
+	}
+}
+
+.drop-where {
+	.list-wrapper {
+		&:after, &:before {
+			display: none;
+		}
+	}
+	.options ul {
+		@include breakpoint(mobile) {
+			border-top: none;
+		}
+	}
+}
+
+.drop-down-num .options ul {
+	height: 120px;
+	overflow-y: auto;
+	z-index: 2;
+	@include breakpoint(mobile) {
+		width: 200%;
+		height: 200px;
+		left: auto;
+		right: 0;
+	}
+}
+
+.note-search .note-datepicker,
+.list-wrapper {
+	position: relative;
+	background: #fff;
+	border: 1px solid #bfbfbf;
+}
+
+.note-datepicker:after,
+.list-wrapper:after, 
+.note-datepicker:before,
+.list-wrapper:before {
+	display: none;
+	bottom: 100%;
+	left: 28%;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+	@include breakpoint(mobile) {
+		display: block;
+	}
+}
+
+
+.list-wrapper:after, 
+.list-wrapper:before {
+	bottom: -1px;
+	z-index: 5;
+	left: 49%;
+}
+
+.note-datepicker:after,
+.list-wrapper:after {
+	border-color: rgba(255, 255, 255, 0);
+	border-bottom-color: #fff;
+	border-width: 8px;
+	margin-left: -8px;
+}
+
+.note-datepicker:before,
+.list-wrapper:before {
+	border-color: rgba(191, 191, 191, 0);
+	border-bottom-color: #77787b;
+	border-width: 9px;
+	margin-left: -9px;
+}
+
+.list-wrapper {
+	display: none;
+	border: none;
+}
+
+li.result-places.res-title {
+	border-bottom: 1px solid #bfbfbf;
+}

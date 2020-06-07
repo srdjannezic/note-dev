@@ -1,0 +1,10 @@
+name: Destinations
+modelClass: Note\Tours\Models\Destinations
+form: $/note/tours/models/destinations/fields.yaml
+defaultRedirect: note/tours/destinations
+create:
+    redirect: 'note/tours/destinations/update/:id'
+    redirectClose: note/tours/destinations
+update:
+    redirect: note/tours/destinations
+    redirectClose: note/tours/destinations

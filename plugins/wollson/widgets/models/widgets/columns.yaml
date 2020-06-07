@@ -1,0 +1,11 @@
+columns:
+    id:
+        label: id
+        type: number
+    name:
+        label: name
+        type: text
+        valueFrom: name
+    region_id:
+        label: region_id
+        type: number

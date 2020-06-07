@@ -1,0 +1,11 @@
+name: Partners
+modelClass: Note\Partners\Models\Partners
+form: $/note/partners/models/partners/fields.yaml
+defaultRedirect: note/partners/partners
+create:
+    redirect: 'note/partners/partners/update/:id'
+    redirectClose: note/partners/partners
+update:
+    redirect: note/partners/partners
+    redirectClose: note/partners/partners
+preview: {  }

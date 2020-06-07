@@ -1,0 +1,100 @@
+fields:
+    title:
+        label: 'rainlab.blog::lang.post.title'
+        span: left
+        placeholder: 'rainlab.blog::lang.post.title_placeholder'
+        type: text
+    slug:
+        label: 'rainlab.blog::lang.post.slug'
+        span: right
+        placeholder: 'rainlab.blog::lang.post.slug_placeholder'
+        preset:
+            field: title
+            type: slug
+        type: text
+    toolbar:
+        type: partial
+        path: post_toolbar
+        cssClass: collapse-visible
+secondaryTabs:
+    fields:
+        content:
+            label: Content
+            size: ''
+            span: full
+            type: richeditor
+            tab: 'rainlab.blog::lang.post.tab_edit'
+        sections:
+            label: Section
+            prompt: 'Add new item'
+            span: full
+            type: repeater
+            tab: 'rainlab.blog::lang.post.tab_edit'
+            form:
+                fields:
+                    section_title:
+                        label: Title
+                        size: ''
+                        span: auto
+                        type: richeditor
+                    section_content:
+                        label: Content
+                        size: ''
+                        span: full
+                        type: richeditor
+                    section_image:
+                        label: Image
+                        mode: file
+                        span: auto
+                        type: mediafinder
+                    image_align:
+                        label: Align
+                        options:
+                            left: left
+                            right: right
+                            full: full
+                        span: auto
+                        type: radio
+        categories:
+            tab: 'rainlab.blog::lang.post.tab_categories'
+            type: relation
+            commentAbove: 'rainlab.blog::lang.post.categories_comment'
+            placeholder: 'rainlab.blog::lang.post.categories_placeholder'
+        published:
+            tab: 'rainlab.blog::lang.post.tab_manage'
+            label: 'rainlab.blog::lang.post.published'
+            span: auto
+            type: checkbox
+        is_featured:
+            label: 'Featured?'
+            span: auto
+            type: checkbox
+            tab: 'rainlab.blog::lang.post.tab_manage'
+        published_at:
+            tab: 'rainlab.blog::lang.post.tab_manage'
+            label: 'rainlab.blog::lang.post.published_on'
+            span: left
+            cssClass: checkbox-align
+            type: datepicker
+            mode: datetime
+            trigger:
+                action: enable
+                field: published
+                condition: checked
+        excerpt:
+            tab: 'rainlab.blog::lang.post.tab_manage'
+            label: 'rainlab.blog::lang.post.excerpt'
+            type: textarea
+            size: small
+        featured:
+            label: 'Featured Image'
+            mode: file
+            span: auto
+            type: mediafinder
+            tab: 'rainlab.blog::lang.post.tab_manage'
+        cover_image:
+            label: 'Cover Image'
+            mode: file
+            span: auto
+            type: mediafinder
+            tab: 'rainlab.blog::lang.post.tab_manage'

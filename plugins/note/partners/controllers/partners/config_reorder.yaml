@@ -1,0 +1,5 @@
+title: Partners
+modelClass: Note\Partners\Models\Partners
+nameFrom: id
+toolbar:
+    buttons: reorder_toolbar

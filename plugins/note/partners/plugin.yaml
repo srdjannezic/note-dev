@@ -1,0 +1,11 @@
+plugin:
+    name: 'note.partners::lang.plugin.name'
+    description: 'note.partners::lang.plugin.description'
+    author: Note
+    icon: oc-icon-users
+    homepage: ''
+navigation:
+    main-menu-item:
+        label: Partners
+        url: note/partners/partners
+        icon: icon-users

@@ -1,0 +1,26 @@
+title = "Post"
+url = "/post/:slug"
+layout = "default"
+is_hidden = 0
+robot_index = "index"
+robot_follow = "follow"
+
+[blogPost]
+slug = "{{ :slug }}"
+categoryPage = "blog/category"
+
+[blogPosts]
+pageNumber = "{{ :page }}"
+postsPerPage = 2
+noPostsMessage = "No posts found"
+sortOrder = "published_at desc"
+categoryPage = 404
+postPage = "post"
+==
+{% component 'blogPost' %}
+{% component 'SeoBlogPost' data=post %}
+<section class="related-posts">
+	<h3 class="section-subtitle">Wanna find out more?</h3>
+	<h2 class="section-title">Try <strong>similar</strong> notes :)</h2>
+	{% component 'blogPosts' %}
+</section>

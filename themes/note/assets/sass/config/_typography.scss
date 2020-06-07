@@ -1,0 +1,153 @@
+//-------------------------
+//---------------TYPOGRAPHY
+//-------------------------
+
+//------FONT-FACE
+
+@include fontFace(GalanoGrotesque, galano/GalanoGrotesque,  null, null, otf);
+@include fontFace(GalanoGrotesqueBold, galano/GalanoGrotesqueBold,  null, null, otf);
+@include fontFace(GalanoGrotesqueLight, galano/GalanoGrotesqueLight,  null, null, otf);
+@include fontFace(GalanoGrotesqueMedium, galano/GalanoGrotesqueMedium,  null, null, otf);
+@include fontFace(GalanoGrotesqueSemiBold, galano/GalanoGrotesqueSemiBold,  null, null, otf);
+
+//-- Icomoon
+
+@font-face {
+  font-family: 'icomoon';
+  src:  url('../fonts/icomoon/icomoon.eot?7lxcyu');
+  src:  url('../fonts/icomoon/icomoon.eot?7lxcyu#iefix') format('embedded-opentype'),
+    url('../fonts/icomoon/icomoon.ttf?7lxcyu') format('truetype'),
+    url('../fonts/icomoon/icomoon.woff?7lxcyu') format('woff'),
+    url('../fonts/icomoon/icomoon.svg?7lxcyu#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-price:before {
+  content: "\e901";
+}
+.icon-tour-type:before {
+  content: "\e900";
+}
+.icon-style:before {
+  content: "\e907";
+}
+.icon-calendar:before {
+  content: "\e908";
+}
+.icon-location:before {
+  content: "\e909";
+}
+.icon-asterix:before {
+  content: "\e90a";
+}
+.icon-about:before {
+  content: "\e90b";
+}
+.icon-bike:before {
+  content: "\e90c";
+}
+.icon-bike-1:before {
+  content: "\e90d";
+}
+.icon-blog:before {
+  content: "\e90e";
+}
+.icon-car:before {
+  content: "\e90f";
+}
+.icon-destinations:before {
+  content: "\e910";
+}
+.icon-dmc:before {
+  content: "\e911";
+}
+.icon-ebike:before {
+  content: "\e912";
+}
+.icon-people:before {
+  content: "\e913";
+}
+.icon-time:before {
+  content: "\e914";
+}
+.icon-transport:before {
+  content: "\e915";
+}
+.icon-foot:before {
+  content: "\e916";
+}
+.icon-letter:before {
+  content: "\e917";
+}
+.icon-tours:before {
+  content: "\e918";
+}
+.icon-loupe:before {
+  content: "\e919";
+}
+.icon-chat:before {
+  content: "\e91a";
+}
+.icon-fb:before {
+  content: "\e91b";
+}
+.icon-insta:before {
+  content: "\e91c";
+}
+.icon-filter:before {
+  content: "\e91d";
+}
+.icon-twitter:before {
+  content: "\e91e";
+}
+.icon-yt:before {
+  content: "\e91f";
+}
+
+
+//------FONT-SIZE
+
+body {
+    //font-size: 0!important; 
+}
+
+$baseFontSize: 10px; // DO NOT CHANGE THIS
+
+html {
+    font-size: $baseFontSize;
+    //change this part
+    @include breakpoint (desktop--Large) {
+        font-size: 0.5208333333333333vw;  // > 1200
+    }
+
+    // @include breakpoint (desktop-fit) { // < 1600
+    //     font-size: 0.625vw; 
+    // }
+    @include breakpoint (tablet--landscape) {
+        font-size: 0.9765625vw;//10px - 768px
+    }
+    @include breakpoint (mobile) {//10px - 640px
+        font-size: 1.68vw;
+    }
+    // @include breakpoint (mobile--s) {//10px - 540px
+    //     font-size: 2.083333333333333vw;
+    // }
+}
+
+

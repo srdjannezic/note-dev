@@ -1,0 +1,15 @@
+title: Regions
+modelClass: Wollson\Widgets\Models\Regions
+list: $/wollson/widgets/models/regions/columns.yaml
+recordUrl: 'wollson/widgets/regions/update/:id'
+noRecordsMessage: 'backend::lang.list.no_records'
+recordsPerPage: 20
+showSetup: true
+showCheckboxes: true
+defaultSort:
+    column: id
+    direction: asc
+toolbar:
+    buttons: list_toolbar
+    search:
+        prompt: 'backend::lang.list.search_prompt'

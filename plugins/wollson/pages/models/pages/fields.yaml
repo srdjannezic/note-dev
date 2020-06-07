@@ -1,0 +1,82 @@
+fields:
+    name:
+        label: Name
+        span: auto
+        type: text
+    title:
+        label: Title
+        size: ''
+        span: left
+        type: richeditor
+    cover_image:
+        label: 'Cover Image'
+        mode: file
+        span: full
+        type: mediafinder
+    subtitle:
+        label: Subtitle
+        size: ''
+        span: full
+        type: richeditor
+    content:
+        label: Section
+        prompt: 'Add new item'
+        span: full
+        type: repeater
+        form:
+            fields:
+                content_title:
+                    label: Title
+                    size: ''
+                    span: auto
+                    type: richeditor
+                content_subtitle:
+                    label: Subtitle
+                    size: ''
+                    span: left
+                    type: richeditor
+                content_text:
+                    label: Content
+                    size: ''
+                    span: full
+                    type: richeditor
+                content_gallery:
+                    label: Image
+                    mode: file
+                    span: auto
+                    type: mediafinder
+                image_align:
+                    label: 'Image Align'
+                    options:
+                        left: left
+                        right: right
+                        full: full
+                    span: auto
+                    type: radio
+                gallery:
+                    label: Gallery
+                    prompt: 'Add new item'
+                    span: auto
+                    type: repeater
+                    form:
+                        fields:
+                            gallery_image:
+                                label: Image
+                                mode: file
+                                span: full
+                                type: mediafinder
+    price_left:
+        label: 'Price list - left'
+        size: ''
+        span: left
+        type: richeditor
+    price_right:
+        label: 'Price list - right'
+        size: ''
+        span: auto
+        type: richeditor
+    price_description:
+        label: 'Price list - description'
+        size: ''
+        span: auto
+        type: richeditor

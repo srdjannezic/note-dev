@@ -1,0 +1,105 @@
+<?php
+
+return [
+    'auth' => [
+        'title' => 'لوحة الإدارة'
+    ],
+    'page' => [
+        'access_denied' => [
+            'label' => 'ممنوع الوصول',
+            'help' => "ليس لديك الصلاحيات لعرض هذه الصفحة.",
+            'cms_link' => 'عودة للوحة الإدارة'
+        ],
+    ],
+    'account' => [
+        'sign_out' => 'تسجيل خروج',
+        'login' => 'تسجيل دخول',
+        'reset' => 'استعادة',
+        'restore' => 'استرجاع',
+        'login_placeholder' => 'دخول',
+    ],
+    'dashboard' => [
+        'menu_label' => 'لوحة الإدارة',
+        'widget_width' => 'العرض',
+        'full_width' => 'عرض كامل',
+    ],
+    'list' => [
+        'default_title' => 'القائمة',
+        'search_prompt' => 'بحث...',
+        'no_records' => 'لا توجد سجلات.',
+        'pagination' => 'السجلات المعروضة: :from-:to من :total',
+        'delete_selected' => 'حذف المحدد',
+        'delete_selected_empty' => 'ليس هناك سجلات محددة لحذفها.',
+        'delete_selected_confirm' => 'هل أنت متأكد من حذف السجلات المحددة؟',
+        'delete_selected_success' => 'حذف السجلات المحددة.',
+        'column_switch_true' => 'نعم',
+        'column_switch_false' => 'لا'
+    ],
+    'form' => [
+        'action_confirm' => 'هل أنت متأكد؟',
+        'create' => 'إضافة',
+        'create_and_close' => 'إضافة وإغلاق',
+        'creating' => 'جاري الإضافة...',
+        'save' => 'حفظ',
+        'save_and_close' => 'حفظ وإغلاق',
+        'saving' => 'جاري الحفظ...',
+        'delete' => 'حذف',
+        'deleting' => 'جاري الحذف...',
+        'confirm_delete_multiple' => 'هل أنت متأكد من حذف ما تم تحديده؟',
+        'cancel' => 'إلغاء الأمر',
+        'close' => 'إغلاق',
+        'confirm' => 'تأكيد',
+        'ok' => 'موافقة',
+        'or' => 'أو',
+		'create_title' => 'إضافة :name',
+        'update_title' => 'تعديل :name',
+        'preview_title' => 'عرض :name',
+        'create_success' => 'تم إنشاء :name بنجاح',
+        'update_success' => 'تم تعديل :name بنجاح',
+        'delete_success' => 'تم حذف :name بنجاح',
+        'restore_success' => 'تم استعادة :name بنجاح',
+        'reset_success' => 'تمت الاستعادة',
+        'missing_id' => 'لا يمكن العثور على هذا السجل.',
+        'not_found' => 'السجل رقم :id غير موجود.',
+        'creating_name' => 'إضافة :name...',
+        'saving_name' => 'حفظ :name...',
+        'confirm_delete' => 'هل أنت متأكد من الحذف?',
+        'confirm_delete_multiple' => 'هل أنت متأكد من حذف السجلات المحددة?',
+        'deleting_name' => 'جاري حذف :name...',
+        'restore' => 'استعادة',
+        'restoring' => 'استعادة',
+        'confirm_restore' => 'هل أنت متأكد من استعادة هذا السجل?',
+        'add' => 'إضافة',
+        'apply' => 'تطبيق',
+        'reload' => 'إعادة تحميل',
+        'complete' => 'تم',
+        'select' => 'تحديد',
+        'select_all' => 'تحديد الكل',
+        'select_none' => 'إلغاء التحديد',
+        'select_placeholder' => 'من فضلك اختار',
+        'insert_row' => 'إضافة سجل',
+        'return_to_list' => 'عودة للقائمة'
+    ],
+    'reorder' => [
+        'default_title' => 'إعادة الترتيب',
+        'no_records' => 'ليس هناك سجلات لإعادة ترتيبها.'
+    ],
+    'filter' => [
+        'all' => 'الكل',
+        'date_all' => 'كل الفترات',
+        'number_all' => 'كل الأرقام',
+    ],
+    'import_export' => [
+        'created' => 'تمت الإضافة',
+        'updated' => 'تم التعديل',
+        'skipped' => 'تم تجاهله',
+        'warnings' => 'تحذيرات',
+        'errors' => 'أخطاء',
+        'processing' => 'معالجة',
+        'file_not_found_error' => 'الملف غير موجود',
+    ],
+    'media' => [
+        'menu_label' => 'الوسائط',
+        'delete_confirm' => 'هل أنت متأكد من حذف العناصر المحددة؟',
+    ],
+];

@@ -1,0 +1,11 @@
+name: Transportation
+modelClass: Note\Tours\Models\Transportation
+form: $/note/tours/models/transportation/fields.yaml
+defaultRedirect: note/tours/transportation
+create:
+    redirect: 'note/tours/transportation/update/:id'
+    redirectClose: note/tours/transportation
+update:
+    redirect: note/tours/transportation
+    redirectClose: note/tours/transportation
+preview: {  }

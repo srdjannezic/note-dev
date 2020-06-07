@@ -1,0 +1,21 @@
+title = "Blog"
+url = "/blog"
+layout = "default"
+meta_description = "Note stories"
+is_hidden = 0
+robot_index = "index"
+robot_follow = "follow"
+
+[blogPosts]
+pageNumber = "{{ :page }}"
+postsPerPage = 6
+noPostsMessage = "No posts found"
+sortOrder = "published_at desc"
+categoryPage = 404
+postPage = "post"
+
+[ToursList]
+slug = "{{ :slug }}"
+name = "{{ :name }}"
+==
+{% component 'blogPosts' %}

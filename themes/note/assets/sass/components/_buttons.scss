@@ -1,0 +1,88 @@
+//-------------------------
+//----------- BUTTONS
+//-------------------------
+
+//-- Menu Button
+//--- mobile menu btn
+
+.ham-menu-btn {
+    cursor: pointer;
+    position: fixed;
+    top: 28px;
+    right: 35px;
+    z-index: 99;
+    transition: all ease-in-out 0.2s 0.2s;
+    @include breakpoint(mobile) {
+    	top: 0rem;
+    	right: 2.4rem;
+    	height: 8.6rem;
+    	width: 30px;
+
+    }
+    .line-wrapper {
+    	@include absolute(center);
+    }
+    .line {
+    	width: 30px;
+        height: 2px;
+        background-color: $c-white;
+        display: block;
+        margin: 7px auto;
+        transition: all 0.3s ease-in-out;
+        @include breakpoint(desktop--small) {
+        	background-color: $c-mainPurple;
+        }
+        @include breakpoint(mobile--s) {
+        	margin: 5px 0;
+        }
+    }
+    &.is-active {
+        z-index: 55;
+
+        .line {
+            background-color: $c-white;
+        }
+    }
+    &.is-active .line:nth-child(2){
+        opacity: 0;
+    }
+
+    &.is-active .line:nth-child(1){
+        -webkit-transform: translateY(9px) rotate(45deg);
+        -ms-transform: translateY(9px) rotate(45deg);
+        -o-transform: translateY(9px) rotate(45deg);
+        transform: translateY(9px) rotate(45deg);
+        @include breakpoint(mobile--s) {
+            transform: translateY(7px) rotate(45deg);
+        }
+    }
+
+    &.is-active .line:nth-child(3){
+        -webkit-transform: translateY(-9px) rotate(-45deg);
+        -ms-transform: translateY(-9px) rotate(-45deg);
+        -o-transform: translateY(-9px) rotate(-45deg);
+        transform: translateY(-9px) rotate(-45deg);
+         @include breakpoint(mobile--s) {
+            transform: translateY(-7px) rotate(-45deg);
+        }
+    }
+} 
+
+//-- Green default btn
+
+.btn-green {
+    display: inline-block;
+    padding: 14px 36px 20px;
+    font-family: $baseFont-med;
+    font-size: 22px;
+    color: $c-white;
+    background-color: $c-mainGreen;
+    transition: all ease-in-out 0.3s;
+    @include breakpoint(mobile) {
+        padding: 3rem 5rem 3rem;
+        font-size: 3rem;
+    }
+    &:hover {
+        background-color: #018982;
+    }
+}

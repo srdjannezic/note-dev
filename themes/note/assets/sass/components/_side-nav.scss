@@ -1,0 +1,134 @@
+//-----------------------------
+//----------- SIDEBAR NAVIGATION
+//------------------------------
+
+.side-nav {
+	display: none;
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	width: 215px;
+	background-color: #351c4c;
+	z-index: 55;
+	transition: all ease-in-out 0.5s 0.4s;
+	transform: translateX(145px);
+	
+	@include breakpoint(desktop--small) {
+		transform: translateX(300px);
+	}
+	@include breakpoint(mobile) {
+		width: 100%;
+		transform: translateX(100%);
+		overflow-y: scroll;
+	}
+	&.open {
+		transition: all ease-in-out 0.6s;
+		transform: translateX(0px);
+	}
+	.nav {
+		@include absolute(center);
+		top: 50%;
+		width: 83.5%;
+		@include breakpoint(desktop-fit) {
+			width: 85.5%;
+		}
+		@include breakpoint(mobile) {
+			top: 10%;
+			transform: translate(-50%, 0);
+			min-height: 80%;
+			overflow-y: scroll;
+		}
+		li {
+			margin: 4rem 0;
+			@include breakpoint(mobile) {
+				margin: 5rem 0;
+			}
+			@include breakpoint(mobile--s) {
+				margin: 3.8rem 0;
+			}
+			a {
+				span {
+					margin-left: 25px;
+					font-family: $baseFont-semiBold;
+					font-size: 16px;
+					color: $c-white;
+					vertical-align: super;
+					transition: all ease-in-out 0.3s;
+					@include breakpoint(mobile) {
+						font-size: 3.2rem;
+						vertical-align: baseline;
+					}
+				}
+				i {
+					font-size: 35px;
+					transition: all ease-in-out 0.3s;
+					color: $c-lightPurple;
+					vertical-align: sub;
+					@include breakpoint(desktop-fit) {
+						font-size: 30px;
+					}
+					@include breakpoint(mobile) {
+						font-size: 3.8rem;
+					}
+					&:before {
+						transition: all ease-in-out 0.3s;
+					}
+				}
+				&:hover {
+					i:before {
+						color: $c-mainYellow;
+					}
+				}
+			}
+			&.separator {
+				position: relative;
+				width: 100%;
+				height: 3px;
+				text-align: left;
+				
+				&:after {
+					content: "";
+					position: absolute;
+					left: -6px;
+					top: 0;
+					width: 46px;
+					height: 100%;
+					background-color: $c-white;
+					@include breakpoint(desktop-fit) {
+						left: -8px;
+					}
+				} 
+			}
+			&.live-chat {
+				display: none;/*in first phase*/
+				position: absolute;
+				bottom: -20rem;
+				left: -8px;
+				@include breakpoint(desktop--small) {
+					position: fixed;
+					bottom: -20rem;
+				}
+				@include breakpoint(mobile) {
+					position: static;
+					margin-top: 10rem
+				}
+				i {
+					font-size: 50px;
+					color: $c-mainYellow;
+					@include breakpoint(mobile) {
+						font-size: 6rem;
+					}
+				}
+				span {
+					position: relative;
+					top: -15px;
+					margin-left: 25px;
+					vertical-align: sub;
+				}
+			}
+		}
+	}
+}
+
+

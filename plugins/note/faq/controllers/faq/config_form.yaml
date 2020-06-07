@@ -1,0 +1,11 @@
+name: FAQ
+modelClass: Note\Faq\Models\FAQ
+form: $/note/faq/models/faq/fields.yaml
+defaultRedirect: note/faq/faq
+create:
+    redirect: 'note/faq/faq/update/:id'
+    redirectClose: note/faq/faq
+update:
+    redirect: note/faq/faq
+    redirectClose: note/faq/faq
+preview: {  }

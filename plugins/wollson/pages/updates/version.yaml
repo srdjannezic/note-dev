@@ -1,0 +1,17 @@
+1.0.1:
+    - 'Initialize plugin.'
+1.0.2:
+    - 'Created table wollson_pages_'
+    - builder_table_create_wollson_pages_.php
+1.0.3:
+    - 'Updated table wollson_pages_'
+    - builder_table_update_wollson_pages_.php
+1.0.4:
+    - 'Updated table wollson_pages_'
+    - builder_table_update_wollson_pages__2.php
+1.0.5:
+    - 'Updated table wollson_pages_'
+    - builder_table_update_wollson_pages__3.php
+1.0.6:
+    - 'Updated table wollson_pages_'
+    - builder_table_update_wollson_pages__4.php

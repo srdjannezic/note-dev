@@ -1,0 +1,161 @@
+
+
+<div class="book-popup book-pay">
+ <div class="preloader-paypal">
+    <img src="/themes/note/assets/images/preload-spin.svg" alt="preloader">
+</div>
+<header class="book-popup__header">
+    <h2>Book this tour</h2>
+    <button class="book-close">&#10005;</button>
+</header>
+
+
+{{ form_ajax(__SELF__ ~ '::onBook',{ class: 'form-book'}) }}
+    <div class="step-1 step">
+        <div class="step-wrapper">
+            
+            <h3><span>Step 1</span> Choose tour date</h3>
+
+            {% if this.page.components['Tour'].tour.attributes.bokun_activity_id is not null %}
+            <input type="hidden" class="tour-id" name="tourid" id="tourid" value="{{ this.page.components['Tour'].tour.attributes.bokun_activity_id }}">
+            {% endif %}
+
+            {% if this.page.components['Tour'].tour.attributes.bokun_rate_id is not null %}
+            <input type="hidden" class="rate-id" name="rateid" id="rateid" value="{{ this.page.components['Tour'].tour.attributes.bokun_rate_id }}">
+            {% endif %}
+
+            {% if this.page.components['Tour'].tour.attributes.bokun_start_id is not null %}
+            <input type="hidden" class="start-id" name="startid" id="startid" value="{{ this.page.components['Tour'].tour.attributes.bokun_start_id }}">
+            {% endif %}
+
+            {% if this.page.components['Tour'].tour.attributes.name is not null %}
+            <input type="hidden" class="tour-name" id="tourname" name="Tour" value="{{ this.page.components['Tour'].tour.attributes.name }}">
+            {% endif %}
+
+            {% if this.page.components['Tour'].tour.attributes.price is not null %}
+            <input type="hidden" class="tour-price" id="tourprice" name="Price" value="{{ this.page.components['Tour'].tour.attributes.price }}">
+            {% endif %}
+
+            <div class="input-wrapper input-date-wrapper pick-date">
+                <input type="text" id="when" readonly="true" name="date" placeholder="Choose date" />
+                <div id="note-datepicker-1" class="note-datepicker"></div>
+              <!--   <i class="icon-calendar"></i> -->
+            </div> 
+
+            <div class="steps-nav">
+               <!--  <span class="book-prev" data-pr="2">Go Back</span> -->
+                <span class="book-next" data-nx="2">Next</span>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="step-2 step">
+        <div class="step-wrapper">
+            <h3><span>Step 2</span> Edit tour details</h3>
+
+            <div class="input-wrapper select-box">
+                <select name="group_type" id="group_type" class="required">
+                    <option value="">Tour type (Private / Public)?</option>
+                    <option value="">---</option>
+                    {% for price in bokun_pricing_id %}
+                    <option value="{{ price.title }}" data-id="{{ price.pricingCategoryId }}">{{ price.title }}</option>
+                    {% endfor %}
+                </select>
+                <span class="error-message">This field is required</span>
+            </div> 
+
+            
+            <div class="input-wrapper select-box">
+                <select name="num_people" id="num_people" class="required">
+                    <option value="">Number of people</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option><option value="13">13</option><option value="14">14</option><option value="15">15</option><option value="16">16</option><option value="17">17</option><option value="18">18</option><option value="19">19</option><option value="20">20</option><option value="21">21</option><option value="22">22</option><option value="23">23</option><option value="24">24</option><option value="25">25</option><option value="26">26</option><option value="27">27</option><option value="28">28</option><option value="29">29</option><option value="30">30</option>
+                </select>
+                <span class="error-message">This field is required</span>
+            </div> 
+            <div class="input-wrapper select-box">
+                <select name="rent_date" id="rent_date" class="required">
+                    {% set times = ['09.30','10.00','10.30','11.00','11.30','12.00','12.30',
+                    '13.00','13.30','14.00','14.30','15.00','15.30','16.00','16.30','17.00'] %}
+                    {% set counter = 0 %}
+                    <option value="">Prefered starting time</option>
+                    {% if starts|length > 16 %}
+                        {% for i in times %}
+                            <option value="{{ times[loop.index] }}" data-id="{{ id }}">{{ times[loop.index] }}</option>
+                        {% endfor %}
+                    {% else %}
+                        {% if starts|length < 16 %}
+                            {% set counter = 16 - starts|length %}
+                        {% endif %}
+                        {% for id in starts %}      
+                            <option value="{{ times[counter] }}" data-id="{{ id }}">{{ times[counter] }}</option>
+                            {% set counter = counter + 1 %}
+                        {% endfor %}
+                    {% endif %}
+                </select>
+                <span class="error-message">This field is required</span>
+            </div>
+            <div class="steps-nav">
+                <span class="book-prev" data-pr="2">Go Back</span>
+                <span class="book-next" data-nx="3">Next</span>
+            </div>
+        </div> 
+    </div>
+
+    <div class="step-3 step">
+        <div class="step-wrapper">
+            <h3><span>Step 3</span> Edit tour details</h3>
+            <div class="input-wrapper">
+                <input type="text" id="name" name="name" placeholder="* Name" class="required">
+            </div> 
+
+            <div class="input-wrapper">
+                <input type="text" id="phone" name="phone" placeholder="* Telephone Number (e.g. +381xxxxxxx)" class="required">
+            </div>    
+
+            <div class="input-wrapper">
+                <input type="text" id="email" name="email" placeholder="* E-mail" class="required">
+            </div>       
+
+           <!--  <div class="book-column book-full">
+                <div class="input-wrapper select-box">
+                    <select name="hear_from">
+                        <option value="">How did you hear about us?</option>
+                        <option value="">---</option><option value="TripAdvisor">TripAdvisor</option><option value="Google Maps">Google Maps</option><option value="Internet">Internet</option><option value="Social Media">Social Media</option><option value="Friend recommendation">Friend recommendation</option><option value="Hotel/Hostel recommendation">Hotel/Hostel recommendation</option><option value="Other">Other</option>
+                    </select>
+                </div>
+                <div class="input-wrapper">
+                    <input type="text" id="other" name="other" placeholder="If other, please specify">
+                </div>    
+            </div> -->
+       
+
+            <div class="input-wrapper">
+                <input type="textarea" id="requests" name="requests" placeholder="Your remarks / request">
+            </div> 
+
+            <div class="check-wrapper">
+                <input type="radio" name="payment" class="styles required-check" value="p-later" id="p-later" data-item="p-later"><label for="p-later">pay later</label>
+                <span class="checkmark">&nbsp;</span>
+            </div>  
+            <div class="check-wrapper">
+                <input type="radio" name="payment" class="styles required-check" value="p-now" id="p-now" data-item="p-now"><label for="p-now">pay now</label>
+                <span class="checkmark">&nbsp;</span>
+            </div>  
+
+            <div id="{{ __SELF__ }}_forms_flash"></div>
+
+           <!--  <div class="btn-wrapper btn-green">
+                <span><input type="submit" class="book-start"></span>
+            </div> -->
+        
+            <div class="steps-nav">
+                <span class="book-prev" data-pr="3">Go Back</span>
+                <span class="book-next book-start" data-payment="">Finish</span>
+               <!--  <span class="book-next book-start" data-payment="paypal">Pay Now</span> -->
+            </div>
+        </div>
+    </div>
+
+{{ form_close() }}
+</div>

@@ -1,0 +1,62 @@
+/*------------------------------------------------------------------------------
+*    CSS Document (http://www.w3.org/Style/CSS/)
+*    For STYLEGUIDE, reffer to /config/_styleguide.scss
+-----------------------------------------------------------------------------*/
+
+//------ALL VARIABLES
+@import 'config/variables';
+
+//------MIXINS
+@import 'mixins/breakpoints';
+@import 'mixins/borderRadius';
+@import 'mixins/transition';
+@import 'mixins/transform';
+@import 'mixins/calc';
+@import 'mixins/placeholder';
+@import 'mixins/fontFace';
+@import 'mixins/gradient';
+@import 'mixins/vendor-prefixes';
+@import 'mixins/absolute-center';
+
+
+
+//------MAIN CONFIG
+@import 'config/reset';
+@import 'config/baseConfig';
+@import 'config/typography';
+@import 'config/helpers';
+
+//------SLIDER±S
+@import 'sliders/slick-theme';
+@import 'sliders/slick';
+@import 'sliders/range-slider';
+
+
+ //------BLOCKS
+@import 'blocks/header';
+@import 'blocks/section';
+@import 'blocks/footer';
+
+
+//------COMPONENTS
+@import 'components/buttons';
+@import 'components/pagination';
+@import 'components/social';
+@import 'components/side-nav';
+@import 'components/calendar';
+@import 'components/book-popup';
+@import 'components/note-search';
+@import 'components/filter';
+
+
+
+// //------PAGES
+@import 'pages/allPages';
+@import 'pages/blog';
+@import 'pages/contact';
+
+
+
+
+//------EFFECTS
+@import 'effects/effects';

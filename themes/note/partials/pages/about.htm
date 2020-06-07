@@ -1,0 +1,110 @@
+==
+{% set img = '/storage/app/media/' ~ page.cover_image %}
+
+<section class="page-hero">
+	{% if page.cover_image %}
+	<div class="img-wrapper">
+		<img src="{{ url(img) }}" />
+	</div>
+	{% endif %}
+	
+	{{ page.title|raw }}
+</section>
+
+{% for section in page.content %}
+	{% set side_class = "full" %}
+	{% set opside_class = "full" %}
+
+	{% if section.image_align == "left" %}
+		{% set side_class = "right" %}
+		{% set opside_class = "left" %}		
+	{% endif %}
+
+	{% if section.image_align == "right" %}
+		{% set side_class = "left" %}
+		{% set opside_class = "right" %}		
+	{% endif %}
+
+	{% if section.content_gallery %}
+		<div class="page-text-block with-image-{{ opside_class }}">
+	{% else %}
+		<div class="page-text-block">
+	{% endif %}
+
+		<div class="container">
+			<div class="page-block__part">
+				<div class="{{ side_class }}">
+				{% if section.content_title %}
+					{{ section.content_title |raw }}
+				{% endif %}
+
+				{% if section.content_subtitle %}
+					{{ section.content_subtitle |raw }}
+				{% endif %}
+
+				{% if section.content_text %}
+					{{ section.content_text |raw }}
+				{% endif %}
+				</div>
+
+				{% if section.content_gallery %}
+					<div class="{{ opside_class }}">
+						{% set section_img = '/storage/app/media/' ~ section.content_gallery %}
+						<img src="{{ url(section_img) }}" />
+					</div>
+				{% endif %}
+
+				{% if section.gallery %}
+					{% set img_counter = 0 %}
+					<div class="gallery-box">
+					{% for image in section.gallery %}
+						{% set gallery_img = '/storage/app/media/' ~ image.gallery_image %}
+						{% if img_counter == 0 %}
+							<div class="wide">
+								<img src="{{ url(gallery_img) }}" />
+							</div>
+						{% else %}
+							<div class="small">
+								<img src="{{ url(gallery_img) }}" />
+							</div>
+						{% endif %}
+						
+						{% set img_counter = img_counter + 1 %}
+					{% endfor %}
+					</div>
+
+				{% endif %}
+
+			</div>
+		</div>
+	</div>
+{% endfor %}
+
+{% if page.price_left %}
+<div class="price-list-box">
+<div class="container">
+	<h2>Price <strong>list</strong></h2>
+	<div class="price-left">
+		{{ page.price_left|raw }}
+	</div>
+	{% if page.price_right %}
+		<div class="price-right">
+			{{ page.price_right|raw }}
+		</div>
+	{% endif %}
+</div>
+</div>
+{% endif %}
+
+{% if page.price_description %}
+<div class="rental-box">
+<div class="container">
+	<div class="rental-left">
+		{{ page.price_description|raw }}
+	</div>
+	<div class="rental-right">
+		{% component 'rentalform' %}
+	</div>
+</div>
+</div>
+{% endif %}

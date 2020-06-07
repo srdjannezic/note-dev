@@ -1,0 +1,76 @@
+{% if hasBlog %}
+    {% placeholder meta default %}
+
+    {% endplaceholder %}
+
+{% else %}
+    {% set title = '' %}
+    {% if this.page.components['Tour'].tour.attributes.name %}
+        {% set title = this.page.components['Tour'].tour.attributes.name %}
+    {% elseif this.page.components['Destination'].destination.attributes.name %}
+        {% set title = this.page.components['Destination'].destination.attributes.name %}
+    {% elseif __SELF__.seo_title %}
+        {% set title = __SELF__.seo_title %}
+    {% endif %}
+
+    {% set desc = '' %}
+    {% if this.page.components['Tour'].tour.attributes.content %}
+        {% set desc = this.page.components['Tour'].tour.attributes.content %}
+    {% elseif this.page.components['Destination'].destination.attributes.summary %}
+        {% set desc = this.page.components['Destination'].destination.attributes.summary %}
+    {% elseif __SELF__.seo_description %}
+        {% set desc = __SELF__.seo_description %}
+    {% endif %}
+
+    {% set image = '/storage/app/media/Note-Heroblock.jpg' %}
+    {% set path = '/storage/app/media' %}
+
+    {% if this.page.components['Tour'].tour.attributes.featured_media %}
+        {% set image = path ~ this.page.components['Tour'].tour.attributes.featured_media %}
+    {% elseif this.page.components['Destination'].destination.attributes.featured_media %}
+        {% set image = path ~ this.page.components['Destination'].destination.attributes.featured_media %}
+    {% endif %}    
+
+    {% if __SELF__.redirect_url %}
+        <meta http-equiv="refresh" content="0; url={{__SELF__.redirect_url}}" />
+    {% endif %}
+
+    <title>{{ title | generateTitle}}</title>
+    <meta name="title" content="{{ title }}">
+    <meta name="description" content="{{ desc|slice(0,200)|striptags|trim }}">
+
+
+    {% if __SELF__.seo_keywords %}
+        <meta name="keywords" content="{{__SELF__.seo_keywords}}">
+    {% endif %}
+
+    {% if __SELF__.canonical_url %}
+        <link rel="canonical" href="{{__SELF__.canonical_url}}" />
+    {% else %}
+        {{ '' | generateCanonicalUrl}}
+    {% endif %}
+
+    <meta name="robots" content="{{__SELF__.robot_index}},{{__SELF__.robot_follow}}">
+
+    {{ ''|otherMetaTags|raw }}
+
+    <meta property="og:title" content="{{ title }} - Note" />
+
+    {% if __SELF__.ogUrl %}
+        <meta property="og:url" content="{{ __SELF__.ogUrl }}" />
+    {% endif %}
+
+    {% if __SELF__.ogSiteName %}
+        <meta property="og:site_name" content="{{ __SELF__.ogSiteName }}" />
+    {% endif %}
+
+    <meta property="og:image" content="{{ url(image) }}">
+
+    <meta property="og:description" content="{{ desc|slice(0,200)|striptags|trim }}" />
+
+
+    {% if __SELF__.ogFbAppId %}
+        <meta property="fb:app_id" content="{{ __SELF__.ogFbAppId  }}" />
+    {% endif %}
+
+{% endif %}

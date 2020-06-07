@@ -1,0 +1,56 @@
+//-------------------------
+//--------MIXIN BREAKPOINTS
+//-------------------------
+
+/* EXAMPLE
+*    @include breakpoint (phone) {
+*        width: 40%;
+*    }
+*/
+
+
+
+@mixin breakpoint($point) {
+    @if $point == desktop--Large {//max-width = 1700px
+        @media (min-width: $tablet--landscape)                       { @content; }
+    }
+     @if $point == desktop-fit {//max-width = 1600px
+        @media (max-width: $desktop-fit)                    { @content; }
+    }
+     
+    @if $point == desktop {//max-width = 1440px
+        @media (max-width: $desktop)                           { @content; }
+    }
+     @if $point == desktop--small {//max-width = 1200px
+        @media (max-width: $desktop--small)                           { @content; }
+    }
+    @else if $point == tablet--landscape {//max-width = 1024px
+        @media (max-width: $tablet--landscape)                        { @content; }
+    }
+    @else if $point == tablet {//max-width = 990px
+        @media (max-width: $tablet)                             { @content; }
+    }
+    @else if $point == mobile {//max-width = 767px
+        @media (max-width: $mobile)                             { @content; }
+    }
+    @else if $point == mobile--l {//max-width = 640px
+        @media (max-width: $mobile--l)                             { @content; }
+    }
+     @else if $point == mobile--s {//max-width = 480px
+        @media (max-width: $mobile--s)                             { @content; }
+    }
+    @else if $point == exeptGadgets {
+        @media (min-width: $tablet + 1)                     { @content; }
+    }
+}
+
+
+//------MEDIA QUERIES
+$desktop-fit        : 1600px;
+$desktop            : 1400px;
+$desktop--small     : 1200px;
+$tablet--landscape  : 1023px;
+$tablet             : 860px;
+$mobile             : 767px; 
+$mobile--l          : 640px; 
+$mobile--s          : 480px; 

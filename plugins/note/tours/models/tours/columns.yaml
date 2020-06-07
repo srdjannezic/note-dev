@@ -1,0 +1,26 @@
+columns:
+    id:
+        label: id
+        type: number
+    title:
+        label: title
+        type: text
+    price:
+        label: price
+        type: text
+    duration:
+        label: duration
+        type: text
+    destinations:
+        label: destinations
+        select: name
+        relation: destinations
+        type: text
+        searchable: true
+        sortable: true
+    created_at:
+        label: created_at
+        type: datetime
+    updated_at:
+        label: updated_at
+        type: datetime

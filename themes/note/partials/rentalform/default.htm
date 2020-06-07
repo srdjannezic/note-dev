@@ -1,0 +1,119 @@
+{{ form_ajax(__SELF__ ~ '::onFormSubmit') }}
+    
+    
+    <div class="form-block">
+        <p>Pick a City</p>
+        <div class="input-wrapper right select-box">
+             <select name="city">
+                <option value="">Pick a City</option>
+                {% for dest in destinations %}
+                    {% if dest.name != 'Vienna' %}
+                    <option value="{{ dest.name }}">{{ dest.name }}</option>
+                    {% endif %}
+                {% endfor %}
+            </select> 
+        </div>
+    </div> 
+
+    <div class="form-block with-date">
+        <div class="left">
+            <p>Pick a date</p>
+            <div class="input-wrapper pick-date input-date-wrapper">
+                <input type="text" id="when" readonly="true" name="pick-a-date" placeholder="Pick a date">
+                <div id="note-datepicker" class="note-datepicker"></div>
+                <i class="icon-calendar"></i>
+            </div>
+        </div>
+       
+        <div class="right">
+            <p>Duration:</p>
+            <div class="check-wrapper">
+                <input type="checkbox" name="duration" value="1-4h" id="time-1"/><label for="time-1">1-4h</label>
+                <span class="checkmark">&nbsp;</span>
+            </div>
+            <div class="check-wrapper">
+                <input type="checkbox" name="duration" value="1-4h" id="time-2"/><label for="time-2">1d</label>
+                <span class="checkmark">&nbsp;</span>
+            </div>
+            <div class="check-wrapper">
+                <input type="checkbox" name="duration" value="1-4h" id="time-3"/><label for="time-3">more than 1d</label>
+                <span class="checkmark">&nbsp;</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-block">
+        <div class="left">
+            <p>Type of bike</p>
+            <div class="input-wrapper left select-box small-input">
+                <select name="bike_type">
+                    <option value="">Bike type</option>
+                    <option value="City bike">City bike</option>
+                    <option value="E-bike">E-bike</option>
+                    <option value="Trekking bike">Trekking bike</option>
+                    <option value="Kids bike">Kids bike</option>
+                    <option value="Tandem">Tandem</option>
+                    <option value="Bike-trailer">Bike-trailer</option>
+                </select>
+            </div>
+        </div>
+        <div class="right">
+            <p>No. of people</p>
+            <div class="input-wrapper right small-input">
+                <input type="text" id="num-people" name="num-people">
+            </div>
+        </div>
+    </div> 
+
+    <div class="form-block three-row">
+        <p>Additional gear</p>
+        <div class="check-wrapper">
+            <input type="checkbox" name="additional-gear" value="trailer" id="gear-1"/><label for="gear-1">Trailer</label>
+            <span class="checkmark">&nbsp;</span>
+        </div>
+        <div class="check-wrapper">
+            <input type="checkbox" name="additional-gear" value="child seat" id="gear-2" /><label for="gear-2">Child seat</label>
+            <span class="checkmark">&nbsp;</span>
+        </div>
+        <div class="check-wrapper">
+            <input type="checkbox" name="additional-gear" value="helmet" id="gear-3" /><label for="gear-3">Helmet</label>
+            <span class="checkmark">&nbsp;</span>
+        </div>
+    </div>
+    
+    <div class="form-block">
+        <p>* First Name</p>
+        <div class="input-wrapper">
+            <input type="text" id="name" name="name">
+        </div>
+    </div>
+    <div class="form-block">
+        <p>* Last Name</p>
+        <div class="input-wrapper">
+            <input type="text" id="lastname" name="lastname">
+        </div>
+    </div>
+    <div class="form-block">
+        <p>* e-mail</p>
+        <div class="input-wrapper">
+            <input type="text" id="email" name="email">
+        </div>
+    </div>
+    <div class="form-block">
+        <p>* Phone Number</p>
+        <div class="input-wrapper">
+            <input type="text" id="phone" name="phone">
+        </div>
+    </div>
+    <div class="form-block">
+        <p>Comments</p>
+        <div class="textarea-wrapper">
+            <textarea name="comments" id="comments" cols="80" rows="8"></textarea>
+        </div>
+    </div>
+        {% partial '@recaptcha' %}
+    <div id="{{ __SELF__ }}_forms_flash"></div>
+    <div class="btn-wrapper btn-green">
+    {{ form_submit() }}
+    </div>
+{{ form_close() }}

@@ -1,0 +1,114 @@
+{% set tours = __SELF__.tours %}
+
+{% if not tours %}
+	{% set tours = pgtours %}	
+{% endif %}
+
+{% if not type %}
+	{% set type = pgtype %}
+{% endif %}
+
+{% if not tours[0] %}
+	<p class="no-results">No results found. <br><span>Please try another search.</span></p>
+{% endif %}
+
+{% for tour in tours %}
+
+{% set duration_short = tour.duration_value %}
+{% if tour.duration_value == 'hours' %}
+	{% set duration_short = 'h' %}
+{% elseif tour.duration_value == 'months' %}
+	{% set duration_short = 'm' %}
+{% elseif tour.duration_value == 'days' %}
+	{% set duration_short = 'd' %}
+{% elseif tour.duration_value == 'years' %}
+	{% set duration_short = 'y' %}
+{% endif %}
+	
+	<article class="tour-card">
+		<a href="/tour/{{ tour.slug }}">
+			<div class="right">
+				{% if tour.featured_media %}
+					{% set image_src = '/storage/app/media/' ~ tour.featured_media %}
+					<img src="{{ url(image_src) }}" />
+				{% endif %}
+				
+			</div>
+			<div class="left">
+				<h2>{{ tour.title }}</h2>
+				<h4 class="tour-card-dest">
+				{% set dest_counter = 0 %}
+				{% for dest in tour.destinations %}
+					{% set dest_counter = dest_counter + 1 %}
+					{% if tour.destinations|length > 1 and dest_counter != tour.destinations|length %}
+						{{ dest.name }} ({{ dest.country }}), 
+					{% else %}
+						{{ dest.name }} ({{ dest.country }})
+					{% endif %}
+				{% endfor %}
+				</h4>
+				{% if type == 'list' %}
+					<div class="details">
+						
+						{% for item in tour.transportation %}
+							<span>
+								<i class="{{ item.icon }}"></i>
+								{{ item.name }}
+							</span>
+						{% endfor %}
+						
+
+						<span ><i class="icon-time"></i>{{ tour.duration }}{{ tour.duration_value }}</span>
+						<!-- <span><strong>up to {{ tour.max_people }}</strong></span> -->
+						
+					</div>
+				{% endif %}
+				{% if type == 'list'  %}
+					<div class="card-info">
+						<div class="price"><span><em>from</em></span><b>{% if tour.group_type|first == 'Private' %}  {% endif %} {{ tour.price + 0 }}&euro;</b></div>
+					</div>
+				{% endif %}
+				{% if type != 'list'  %}
+				<div class="tag-wrapper">
+					{% set style_counter = 0 %}
+					{% set break = false %}
+					{% for style in tour.style if not break %}
+							<div class="tour-tag">
+								{{ style.title }}
+							</div>
+							{% if style_counter >= 2 %}
+								{% set break = true %}
+							{% endif %}
+							{% set style_counter = style_counter + 1 %}
+					{% endfor %}
+				</div>				
+				{% endif %}
+
+				{% if type == 'list'  %}
+				<div class="tag-wrapper">
+					{% set style_counter = 0 %}
+					{% set break = false %}
+					{% for style in tour.style if not break %}
+							<div class="tour-tag">
+								{{ style.title }}
+							</div>
+							{% if style_counter >= 2 %}
+								{% set break = true %}
+							{% endif %}
+							{% set style_counter = style_counter + 1 %}
+					{% endfor %}
+				</div>
+				{% endif %}
+				
+				<div class="summary">{{ tour.summary |slice(0,150)|raw }}...</div>
+				{% if type != 'list'  %}
+					<div class="card-info">
+						<div class="price"><span><em>from</em></span><b>{% if tour.group_type|first == 'Private' %}  {% endif %} {{ tour.price + 0 }}&euro;</b></div>
+					</div>
+				{% endif %}
+			</div>
+			
+		</a>
+	</article>
+
+{% endfor %}

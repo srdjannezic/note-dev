@@ -1,0 +1,17 @@
+{% for dest in destinations %}
+	{% set imgpath = '/storage/app/media' ~ dest.featured_image %}
+	
+	<article class="media-box m col">
+		<a href="/destination/{{ dest.slug }}">
+			<div class="img-wrapper">
+				<div class="overlay">
+					<img src="{{ url(imgpath) }}" />
+				</div>
+			</div>
+			<div class="media-info">
+				<h2>{{ dest.name }}</h2>
+				<h4>{{ dest.subtitle | raw }}</h4>
+			</div>
+		</a>
+	</article>
+{% endfor %}

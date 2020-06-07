@@ -1,0 +1,34 @@
+title = "Cancel Reservation"
+url = "/cancel-reservation"
+layout = "default"
+is_hidden = 0
+robot_index = "index"
+robot_follow = "follow"
+
+[bokun]
+
+[ToursList]
+ToursType = "list"
+slug = "{{ :slug }}"
+name = "{{ :name }}"
+==
+<div class="pg-success booking-res-page">
+	<div class="container">
+		<h1>Cancel your tour</h1>
+		{{ form_ajax(__SELF__ ~ '::onCancel') }}
+		<div class="input-wrapper">
+			<input type="text" class="code" name="code" placeholder="Enter confirmation code:" />
+		</div>
+		<div class="input-wrapper">
+			<input type="email" class="email" name="email" placeholder="Email" />
+		</div>
+		<div class="input-wrapper textarea-wrapper">
+			<textarea class="reason" rows="4" cols="36" name="reason" placeholder="Reason?"></textarea>
+			
+		</div>
+		<div class="input-wrapper">
+			<input type="submit" class="submit-cancel" name="submit" value="Continue"/>
+		</div>
+		{{ form_close() }}
+	</div>
+</div>

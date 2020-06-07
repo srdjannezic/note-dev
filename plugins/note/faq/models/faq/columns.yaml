@@ -1,0 +1,10 @@
+columns:
+    id:
+        label: id
+        type: number
+    question:
+        label: question
+        type: text
+    answer:
+        label: answer
+        type: text

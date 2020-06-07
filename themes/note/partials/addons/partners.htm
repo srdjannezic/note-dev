@@ -1,0 +1,16 @@
+{% set counter = 0 %}
+
+<div class="partners-list">
+{% for partner in partners %}
+	{% if counter % 6 == 0 %}
+	{% if counter > 0 %}
+		</div>
+	{% endif %}
+	<div class="partners-row">
+	{% endif %}
+	{% set icon = '/storage/app/media' ~ partner.icon %}
+		<div class="img-wrapper"><img src="{{ url(icon) }}" /></div>
+{% set counter = counter + 1 %}
+{% endfor %}
+	</div>
+</div>

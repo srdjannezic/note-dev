@@ -1,0 +1,52 @@
+==
+==
+{% set widgets = __SELF__.widgets %}
+
+{% for item in widgets %}
+
+    {% if item.subtitle %}
+    <div class="section-subtitle">
+    	{{ item.subtitle|raw }}
+    </div>
+    {% endif %}
+
+    {% if item.title %}
+    <div class="section-title">
+    	{{ item.title|raw }}
+    </div>
+    {% endif %}
+
+    {% if item.content %}
+    <div class="section-content">
+        {{ item.content|raw }}
+    </div>
+    {% endif %}
+
+    {% if item.blocks %}
+    <div class="box-wrapper">
+        {% for block in item.blocks %}
+            {% set imgpath = '/storage/app/media/' ~ block.block_icon %}
+            <article class="media-box">
+                {% if block.block_icon %}
+                <span class="media-icon"><img src="{{ url(imgpath) }}" /></span>
+                {% endif %}
+                <h2>{{ block.block_title | raw }}</h2>
+                {% if block.block_content %}
+                {{ block.block_content | raw }}
+                {% endif %}
+                <div class="info">
+                    {% if block.contact_info %}
+                    {{ block.contact_info | raw }}
+                    {% endif %}
+                </div>
+                <div class="map">
+                    {% if block.contact_map %}
+                    {{ block.contact_map | raw }}
+                    {% endif %}
+                </div>                
+            </article>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+{% endfor %}
